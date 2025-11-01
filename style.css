@@ -39,13 +39,21 @@ header {
     align-items: center;
     padding: 20px 0;
 }
-
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #2e7d32;
-    text-decoration: none;
+    display: flex;
+    align-items: center; /* supaya logo & teks sejajar */
+    gap: 10px; /* jarak antara logo dan teks */
+    font-size: 24px; /* ukuran teks bisa diubah */
+    font-weight: bold;
+    color: #2e7d32; /* warna teks */
+    text-decoration: none; /* hapus garis bawah */
 }
+
+.logo img {
+    height: 40px; /* ukuran logo kecil */
+    width: auto;
+}
+
 
 .nav-links {
     display: flex;
@@ -208,7 +216,7 @@ section {
 }
 
 .about-image img {
-    width: 100%;
+    width: 50%;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
