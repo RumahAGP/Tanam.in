@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan - BenihKu</title>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo">BenihKu</a>
+                <a href="index.html" class="logo">
+                    <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
+                    BenihKu
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="products.html">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="services.html" class="active">Layanan</a></li>
                     <li><a href="testimonials.html">Testimoni</a></li>
                     <li><a href="contact.html">Kontak</a></li>
                 </ul>
@@ -22,6 +26,7 @@
         </div>
     </header>
 
+    <!-- Services Section -->
     <section class="services">
         <div class="container">
             <div class="section-title">
@@ -29,29 +34,39 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-seedling service-icon"></i>
+                    <div class="service-image">
+                        <img src="Assets/CS.png" alt="Konsultasi Penanaman">
+                    </div>
                     <h3>Konsultasi Penanaman</h3>
                     <p>Bimbingan menanam dari ahli kami untuk pemula hingga profesional.</p>
                 </div>
+
                 <div class="service-card">
-                    <i class="fas fa-truck service-icon"></i>
+                    <div class="service-image">
+                        <img src="Assets/Mobil.png" alt="Pengiriman Cepat">
+                    </div>
                     <h3>Pengiriman Cepat</h3>
                     <p>Benih dikirim dengan cepat dan aman ke seluruh Indonesia.</p>
                 </div>
+
                 <div class="service-card">
-                    <i class="fas fa-certificate service-icon"></i>
+                    <div class="service-image">
+                        <img src="Assets/Sertifikat.png" alt="Benih Bersertifikat">
+                    </div>
                     <h3>Benih Bersertifikat</h3>
                     <p>Benih kami memiliki sertifikat kualitas dan daya tumbuh terjamin.</p>
                 </div>
             </div>
         </div>
     </section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
-    </div>
-</footer>
-
+<a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
+  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
+</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        </div>
+    </footer>
 </body>
 </html>

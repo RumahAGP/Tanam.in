@@ -10,7 +10,10 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo">BenihKu</a>
+                <a href="index.html" class="logo">
+                 <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
+                BenihKu
+                  </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="products.html">Benih</a></li>
@@ -27,6 +30,11 @@
         <div class="section-title">
             <h2>Katalog Benih Unggulan</h2>
         </div>
+
+         <div class="search-box-products">
+        <input type="text" id="searchInput" placeholder="Cari benih...">
+        <button id="searchBtn">cari benih</button>
+    </div>
         <div class="products-grid">
             <!-- Produk 1 -->
             <div class="product-card">
@@ -35,13 +43,38 @@
                     <img src="assets/Chili2.jpg" alt="Benih Cabai">
                     <img src="assets/Chili3.jpg" alt="Benih Cabai">
                 </div>
+                
                 <div class="product-info">
                     <h3>Benih Cabai</h3>
                     <p>Cabai berkualitas tinggi, cepat tumbuh, tahan penyakit.</p>
-                    <p class="product-price">Rp 15.000</p>
-                    <a href="contact.html" class="btn-small">Pesan Sekarang</a>
+                    <span class="harga-coret">Rp 1.500</span>
+                    <p class="product-price">Rp 500</p>
+                    <a href="detail.html?id=cabai" class="btn-small">Lihat produk</a>
+
                 </div>
             </div>
+
+
+<!-- bayem -->
+<div class="product-card">
+                <div class="product-image">
+                    <img src="assets/Chili.jpg" alt="Benih Cabai">
+                    <img src="assets/Chili2.jpg" alt="Benih Cabai">
+                    <img src="assets/Chili3.jpg" alt="Benih Cabai">
+                </div>
+                
+                <div class="product-info">
+                    <h3>Benih Bayem</h3>
+                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
+                    <span class="harga-coret">Rp500</span>
+                    <p class="product-price">Rp 250</p>
+                    <a href="detail.html?id=bayem" class="btn-small">Lihat produk</a>
+
+                </div>
+            </div>
+
+
+            
 
             <!-- Produk 2 -->
             <div class="product-card">
@@ -165,7 +198,9 @@
         </div>
     </div>
 </section>
-
+<a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
+  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
+</a>
 <footer>
     <div class="container">
         <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
