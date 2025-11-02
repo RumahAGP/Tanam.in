@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keranjang Belanja - BenihKu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
+          BenihKu
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="products.html">Benih</a></li>
+          <li><a href="services.html">Layanan</a></li>
+          <li><a href="testimonials.html">Testimoni</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li>
+            <a href="keranjang.html">
+              <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+              Keranjang
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Isi Keranjang -->
+  <main class="keranjang-container">
+    <h1 class="judul-keranjang">Keranjang Belanja Anda</h1>
+
+    <table class="tabel-keranjang">
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th>Harga</th>
+          <th>Jumlah</th>
+          <th>Total</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="keranjangContent">
+        <!-- Produk akan ditambahkan oleh JS -->
+      </tbody>
+    </table>
+
+    <div class="total-harga">
+      <h3>Total: Rp <span id="totalHarga">0</span></h3>
+      <a href="checkout.html" class="tombol-pesan">Lanjut ke Pembayaran</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+
+  <script src="keranjang.js"></script>
+</body>
+</html>
