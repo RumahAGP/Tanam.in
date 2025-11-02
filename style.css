@@ -391,7 +391,7 @@ section {
 
 .service-image img {
     width: 100%;
-    height: 200px;
+    height: 300px;
     border-radius: 12px;
     object-fit: cover;
     margin-bottom: 15px;
@@ -574,32 +574,37 @@ section {
 }
 /* Tombol WhatsApp Mengambang dengan Logo */
 .whatsapp-float {
-    position: fixed;
-    width: 65px;
-    height: 65px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    animation: pulse 1.8s infinite;
-    transition: 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    background-color: #20ba5a;
-    transform: scale(1.05);
+  background-color: #1ebc57;
+  transform: scale(1.05);
 }
 
 .wa-logo {
-    width: 35px;
-    height: 35px;
-    filter: brightness(0) invert(1); /* biar logo putih */
+  width: 28px;
+  height: 28px;
 }
+
+.wa-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
 
 /* Animasi Gelombang */
 @keyframes pulse {
@@ -843,4 +848,168 @@ footer p {
     .detail-info {
         text-align: center;
     }
+}
+
+.search-voucher-container {
+    display: flex;
+    justify-content: center; /* Bisa diganti space-between untuk kiri-kanan */
+    align-items: center;
+    gap: 10px; /* Jarak antara search box dan voucher */
+    margin: 20px auto;
+}
+
+.menu-voucher a {
+    display: flex;
+    align-items: center; /* ikon dan teks sejajar */
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #2e7d32;
+    transition: 0.3s;
+}
+
+.menu-voucher a:hover {
+    background-color: #2e7d32;
+    color: white;
+}
+/* ========== VOUCHER SECTION ========== */
+.voucher-section {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+.voucher-section .section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.voucher-section .section-title h2 {
+  font-size: 2rem;
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+.voucher-section .section-title p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Search dan menu atas */
+.search-voucher-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.search-box-products {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box-products input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 240px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box-products input:focus {
+  border-color: #4caf50;
+}
+
+.search-box-products button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box-products button:hover {
+  background-color: #43a047;
+}
+
+.menu-voucher a {
+  text-decoration: none;
+  color: #4caf50;
+  font-weight: 600;
+  border: 1px solid #4caf50;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu-voucher a:hover {
+  background: #4caf50;
+  color: #fff;
+}
+
+/* Kartu voucher */
+.voucher-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.voucher-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.voucher-card:hover {
+  transform: translateY(-5px);
+}
+
+.voucher-card h3 {
+  font-size: 1.3rem;
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.voucher-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.voucher-code {
+  display: flex;
+  gap: 8px;
+}
+
+.voucher-code input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #2e7d32;
+  background-color: #f1f8e9;
+}
+
+.voucher-code button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.voucher-code button:hover {
+  background-color: #388e3c;
 }

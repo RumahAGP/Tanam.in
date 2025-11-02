@@ -20,19 +20,26 @@ const dataProduk = {
 
         
         gambar: [
-            "assets/Chili.jpg",
+            "assets/bayem cover yang ini aja.jpeg",
             "assets/Chili2.jpg",
             "assets/Chili3.jpg"
         ]
     },
 
 
+    jagung: {
+        nama: "Benih jagung",
+        harga: "Rp 500",
+        hargaLama: "Rp 750",
+        deskripsi: "Benih Jagung berkualitas tinggi dengan daya tumbuh di atas 90% tahan penyakit,dan menghasilkan jagung yang berkualitas",
 
-
-
-
-
-
+        
+        gambar: [
+            "assets/cover.jpeg",
+            "assets/Chili2.jpg",
+            "assets/Chili3.jpg"
+        ]
+    },
 };
 
 const url = new URLSearchParams(window.location.search);
