@@ -34,10 +34,8 @@ function tampilkanKeranjang() {
         });
     }
 
-    // Update total harga
     updateTotal();
 
-    // Event listener untuk input jumlah
     document.querySelectorAll(".input-jumlah").forEach(input => {
         input.addEventListener("input", (e) => {
             const idx = e.target.dataset.index;
@@ -54,7 +52,6 @@ function tampilkanKeranjang() {
         });
     });
 
-    // Event listener untuk hapus item
     document.querySelectorAll(".hapus-item").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const idx = e.target.dataset.index;
@@ -65,11 +62,10 @@ function tampilkanKeranjang() {
     });
 }
 
-// Fungsi update total
 function updateTotal() {
     const total = keranjang.reduce((sum, item) => sum + parseHarga(item.harga) * item.jumlah, 0);
     document.getElementById("totalHarga").textContent = total.toLocaleString();
 }
 
-// Jalankan pertama kali
+
 tampilkanKeranjang();

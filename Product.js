@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Saat tombol diklik
+
   searchBtn.addEventListener("click", function () {
     const keyword = searchInput.value.toLowerCase().trim();
 
-    // Jika input kosong, tampilkan semua produk
+  
     if (keyword === "") {
       products.forEach((product) => (product.style.display = "block"));
       return;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Bonus: tekan Enter juga bisa mencari
+
   searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       searchBtn.click();
