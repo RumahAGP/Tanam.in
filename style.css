@@ -261,6 +261,12 @@ section {
     max-width: 250px;
 }
 
+.harga-coret {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
