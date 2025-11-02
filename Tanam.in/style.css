@@ -75,8 +75,8 @@ header {
     color: #2e7d32;
 }
 
-.nav-links a:focus {
-    color: #2e7d32;
+.nav-links a.active {
+  color: #2e7d32;
 }
 .btn {
     display: inline-block;
@@ -890,7 +890,7 @@ footer p {
 /* Search dan menu atas */
 .search-voucher-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 30px;
