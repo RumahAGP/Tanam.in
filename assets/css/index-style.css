@@ -4,3 +4,58 @@ header {
   height: 100vh;
   color: white;
 }
+
+.hero {
+
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  transform: translateY(-45%);
+  text-align: left;
+  color: white;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  opacity: 0.95;
+}
+
+.btn-primary {
+  background-color: #65b741;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4fa034;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #65b741;
+}
