@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navbar */
+
+nav {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  width: 90%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30px;
+  padding: 8px 15px;
+  height: 100%;
+  gap: 10px;
+  font-size: 18x;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.logo img {
+  height: 32px;
+  mix-blend-mode: multiply;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  background: #fff;
+  color: #333;
+  height: 100%;
+  font-size: 14px;
+  padding: 8px 8px 8px 40px;
+  font-weight: 500;
+  gap: 30px;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-links .group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Search Bar */
+
+.search-box {
+  height: 40px;
+  background: #efe5dd;
+  border-radius: 30px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  width: 100px;
+}
+
+.search-box ion-icon[name="search-outline"] {
+  font-size: 24px;
+  color: #333;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  background: #efe5dd;
+  cursor: pointer;
+}
+
+.cart ion-icon[name="cart-outline"] {
+  font-size: 24px;
+  color: #333;
+}
+
+.auth {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #333;
+  height: 100%;
+  gap: 10px;
+  font-weight: 500;
+  padding: 8px 8px 8px 30px;
+  border-radius: 30px;
+}
+
+.auth .sign-up {
+  background: #efe5dd;
+  color: #333;
+  padding: 8px 20px;
+  border-radius: 30px;
+}
+:root {
+  --radius: 30px;
+  --accent: #efe5dd;
+  --brand-color: #2e7d32;
+  --bg-color: #fff;
+  --text-color: #333;
+  --nav-height: 52px;
+  --gap: 10px;
+  --max-width: 1200px;
+}
+
+/* Navbar wrapper (refactored, utility-driven) */
+.nav-wrap {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: var(--max-width);
+  padding: 10px;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  z-index: 50;
+  transition: padding 160ms ease, width 160ms ease;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-color);
+  color: var(--brand-color);
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.brand img {
+  height: 32px;
+  mix-blend-mode: multiply;
+  display: block;
+}
+
+/* Primary link container */
+.links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  list-style: none;
+  background: var(--bg-color);
+  padding: 8px 8px 8px 40px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Grouping within links (keeps intent but generic name) */
+.links .group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Search component */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  padding: 5px 15px;
+  border-radius: var(--radius);
+  height: 40px;
+  min-width: 56px;
+  transition: width 160ms ease;
+}
+
+.search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  width: 100px;
+  color: var(--text-color);
+}
+
+/* Icon button utility (for cart, icons, etc.) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-color);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.icon-btn:active {
+  transform: scale(0.98);
+}
+
+/* Auth block */
+.auth-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 8px 8px 8px 30px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btn-signup {
+  background: var(--accent);
+  color: var(--text-color);
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: box-shadow 140ms ease, transform 120ms ease;
+}
+
+.btn-signup:hover,
+.links a:hover,
+.icon-btn:hover,
+.brand:hover {
+  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid rgba(46, 125, 50, 0.12);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .links {
+    gap: 18px;
+    padding-left: 20px;
+  }
+
+  .search input {
+    width: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-wrap {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .links {
+    flex-basis: 100%;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .search input {
+    width: 90px;
+  }
+}
+
+@media (max-width: 420px) {
+  .links {
+    display: none; /* collapsed for very small screens; replace with a menu toggle in HTML/JS */
+  }
+
+  .brand {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .search input {
+    width: 72px;
+  }
+}

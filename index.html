@@ -1,95 +1,53 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BenihKu - Toko Benih Tanaman Berkualitas</title>
-     <link rel="stylesheet" href="style.css">
-<body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css" />
+    <link rel="stylesheet" href="assets/css/index-style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                 <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
-                BenihKu
-                  </a>
+      <nav class="nav-wrap container">
+        <a href="index.html" class="brand">
+          <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+        </a>
 
-                 <ul class="nav-links">
-                   <li><a href="index.html" class="active">Beranda</a></li>
-                    <li><a href="products.html">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="testimonials.html">Testimoni</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                    <li><a href="Keranjang.html"> <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">Keranjang</a></li>
+        <ul class="links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="products.html" class="active">Benih</a></li>
+          <li><a href="services.html">Layanan</a></li>
+          <li><a href="testimonials.html">Testimoni</a></li>
+          <li><a href="contact.html">Kontak</a></li>
 
-                </ul>
-            </nav>
+          <li class="group">
+            <form action="/products.html" method="get" role="search">
+              <div class="search">
+                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                <input type="search" name="q" placeholder="Search" />
+              </div>
+            </form>
+
+            <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+              <ion-icon name="cart-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+        <div class="auth-panel">
+          <a href="" class="sign-in">Sign In</a>
+          <a href="" class="btn-signup">Sign Up</a>
         </div>
+      </nav>
     </header>
-
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Tumbuhkan Kebun Impian Anda dengan Benih Berkualitas</h1>
-                <p>Kami menyediakan berbagai benih tanaman berkualitas tinggi dengan daya tumbuh optimal.</p>
-                <div class="hero-buttons">
-                    <a href="products.html" class="btn btn-primary">Lihat Katalog Benih</a>
-                    <a href="#about" class="btn btn-secondary">Pelajari Lebih</a>
-                </div>
-            </div>
-        </div>
-    </section>
-     
-    <section id="about" class="about">
-        <div class="container" style="text-align: center;">
-            <div class="section-title">
-                <div>
-   <div>
-    <h2>Tentang BenihKu</h2>
-    <p>Supplier benih tanaman terpercaya dengan slogan kami "Benihku Benih Kita semua"</p>
-<br>
-    <div class="card">
-        <h3><b>Visi</b></h3>
-        <p>Menjadi penyedia benih berkualitas tinggi yang mendukung pertanian produktif, berkelanjutan, dan meningkatkan kesejahteraan petani.</p>
-    </div>
-
-    <div class="card">
-        <h3><b>Misi</b></h3>
-        <p>1. Menyediakan benih unggul dengan kualitas terjamin dan tahan terhadap hama serta penyakit.</p>
-        <p>2. Memberikan edukasi dan pendampingan teknis kepada petani agar hasil panen optimal.</p>
-        <p>3. Mengembangkan inovasi benih yang ramah lingkungan dan berkelanjutan.</p>
-        <p>4. Menjalin kerja sama erat dengan petani, distributor, dan pihak terkait untuk memperluas akses benih unggul.</p>
-    </div>
-</div>
-<br>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Mengapa Memilih BenihKu?</h3>
-                    <ul>
-                       <ul>
-                        <li>✅ Benih berkualitas dengan daya tumbuh &gt;90%</li>
-                        <li>✅ Garansi kualitas dan kemurnian benih</li>
-                        <li>✅ Pengemasan khusus untuk menjaga viabilitas</li>
-                        <li>✅ Konsultasi gratis teknik penanaman</li>
-                        </ul>
-                </div>
-                <div class="about-image">
-                    <img src="assets/About.png" alt="Tentang BenihKu">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-<a href="https://wa.me/6287714040944" class="whatsapp-float" target="_blank">
-  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
-  <span class="wa-text">Perlu bantuan?</span>
-</a>
-  
-   <footer>
-    <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
-    </div>
-</footer>
-</body>
+  </body>
 </html>
