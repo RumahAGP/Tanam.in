@@ -21,3 +21,23 @@ header {
   line-height: 1.2;
   margin-bottom: 20px;
 }
+
+.hero-content .hero-description {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero-content .hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.hero-content .see-catalog {
+  background-color: #2e7d32;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 30px;
+}
