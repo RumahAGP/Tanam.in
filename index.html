@@ -30,24 +30,55 @@
           <li><a href="contact.html">Kontak</a></li>
 
           <li class="group">
-            <form action="/products.html" method="get" role="search">
-              <div class="search">
-                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                <input type="search" name="q" placeholder="Search" />
-              </div>
-            </form>
+            <div class="search">
+              <input type="checkbox" id="search-toggle" />
+              <label for="search-toggle">
+                <ion-icon name="search-outline"></ion-icon>
+              </label>
+              <input type="search" placeholder="Search..." />
+            </div>
 
             <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
               <ion-icon name="cart-outline"></ion-icon>
             </a>
+
+            <div class="icon-btn menu-toggle">
+              <input type="checkbox" id="menu-toggle" />
+              <label for="menu-toggle" class="hamburger">
+                <ion-icon name="menu-outline"></ion-icon>
+              </label>
+              <ul class="sub-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="products.html" class="active">Benih</a></li>
+                <li><a href="services.html">Layanan</a></li>
+                <li><a href="testimonials.html">Testimoni</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+                <li><a href="" class="sign-in">Sign In</a></li>
+                <li><a href="" class="sign-up">Sign Up</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
 
         <div class="auth-panel">
-          <a href="" class="sign-in">Sign In</a>
-          <a href="" class="btn-signup">Sign Up</a>
+          <a href="#" class="sign-in">Sign In</a>
+          <a href="#" class="btn-signup">Sign Up</a>
         </div>
       </nav>
+
+      <div class="hero-content container">
+        <h1 class="hero-title">
+          Tumbuhkan Kebun Impian Anda dengan Benih Berkualitas
+        </h1>
+        <p class="hero-description">
+          Kami menyediakan berbagai benih tanaman berkualitas tinggi dengan daya
+          tumbuh optimal.
+        </p>
+        <div class="hero-actions">
+          <a href="" class="see-catalog">Lihat Katalog Benih</a>
+          <a href="" class="learn-more">Pelajari Lebih</a>
+        </div>
+      </div>
     </header>
   </body>
 </html>

@@ -4,3 +4,20 @@ header {
   height: 100vh;
   color: white;
 }
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-content .hero-title {
+  max-width: 771px;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
