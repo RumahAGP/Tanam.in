@@ -48,11 +48,6 @@ header {
   padding: 60px 0;
 }
 
-.section-title {
-  font-size: 36px;
-  text-align: center;
-}
-
 .section-description {
   font-size: 18px;
   text-align: center;
@@ -126,17 +121,6 @@ header {
 
 .why-us .section-description p {
   padding: 10px 10px 10px 100px;
-}
-
-footer {
-  background-color: #2e7d32;
-  color: white;
-  padding: 40px 0;
-  text-align: center;
-}
-
-footer p {
-  margin: 0;
 }
 
 @media (max-width: 1200px) {

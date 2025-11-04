@@ -175,6 +175,13 @@ input[type="checkbox"] {
   display: none;
 }
 
+.section-title {
+  font-size: 36px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #2e7d32;
+}
+
 @media (max-width: 1163px) {
   .search {
     position: relative;
@@ -327,4 +334,15 @@ input[type="checkbox"] {
   .search input {
     width: 72px;
   }
+}
+
+footer {
+  background-color: #2e7d32;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
 }
