@@ -4,53 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Benih - BenihKu</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/base-style.css">
+    <link rel="stylesheet" href="assets/css/product-style.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 <body>
- 
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                 <img src="assets/img/Logo.jpeg" alt="Logo BenihKu">
-                BenihKu
-                  </a>
-                 <ul class="nav-links">
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="products.html" class="active">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="testimonials.html">Testimoni</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                    <li><a href="Keranjang.html"> <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">Keranjang</a></li>
+      <nav class="nav-wrap container">
+        <a href="index.html" class="brand">
+          <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+        </a>
 
-                </ul>
-            </nav>
+        <ul class="links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="products.html" class="active">Benih</a></li>
+          <li><a href="services.html">Layanan</a></li>
+          <li><a href="testimonials.html">Testimoni</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+
+          <li class="group">
+            <div class="search">
+              <input type="checkbox" id="search-toggle" />
+              <label for="search-toggle">
+                <ion-icon name="search-outline"></ion-icon>
+              </label>
+              <form action="products.html" method="get">
+                  <input type="search" placeholder="Search..." />
+              </form>
+            </div>
+
+            <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+              <ion-icon name="cart-outline"></ion-icon>
+            </a>
+
+            <div class="icon-btn menu-toggle">
+              <input type="checkbox" id="menu-toggle" />
+              <label for="menu-toggle" class="hamburger">
+                <ion-icon name="menu-outline"></ion-icon>
+              </label>
+              <ul class="sub-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="products.html" class="active">Benih</a></li>
+                <li><a href="services.html">Layanan</a></li>
+                <li><a href="testimonials.html">Testimoni</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+                <li><a href="" class="sign-in">Sign In</a></li>
+                <li><a href="" class="sign-up">Sign Up</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="auth-panel">
+          <a href="#" class="sign-in">Sign In</a>
+          <a href="#" class="btn-signup">Sign Up</a>
         </div>
-    </header>
-
-        <section class="products">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Katalog Benih Unggulan</h2>
+      </nav>
+      <header class="container">
+         <h1 class="hero-title">Katalog Benih Unggulan</h1>
+         <form action="/products.html" method="get" class="search-form-products">
+            <div class="search-box">
+                <ion-icon name="search-outline"></ion-icon>
+                <input type="text" class="search-input" placeholder="Cari benih...">
+                <a href="voucher.html" class="voucher"><ion-icon name="ticket-outline"></ion-icon> Voucher</a>
+            </div>
+         </form>
+      </header>
+    <main>
+        <section class="products container">
+           <div class="product-grid">
+                <div class="product-card">
+                    <img src="assets/img/bayem cover yang ini aja.jpeg" alt="" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bibit Bayam</h3>
+                        <span class="product-price">Rp. 500</span>
+                        <a href="" class="product-link">Lihat Produk</a>
+                    </div>
                 </div>
+           </div>
+        </section>
+    </main>
 
-            <div class="search-voucher-container">
-
-            <div class="search-box-products">
-                <input type="text" id="searchInput" placeholder="Cari benih...">
-                <button id="searchBtn">Cari benih</button>
-            </div>
-          
-            <div class="menu-voucher">
-                <a href="voucher.html">
-                    <img src="assets/img/Voucher.png" alt="Voucher" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
-                    Voucher
-                </a>
-            </div>
-        </div>
+    <header>
+   
 
 
         <div class="products-grid">
-
             <div class="product-card">
                 <div class="product-image">
                     <img src="assets/img/Chili.jpg" alt="Benih Cabai">
