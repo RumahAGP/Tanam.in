@@ -41,3 +41,13 @@ header {
   font-weight: 500;
   border-radius: 30px;
 }
+
+
+.hero-content .kontak-kami {
+  border: 1px solid #2e7d32;
+
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 30px;
+}
