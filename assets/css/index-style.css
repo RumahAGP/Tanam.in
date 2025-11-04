@@ -3,6 +3,7 @@ header {
     url("../img/hero.jpg") center/cover no-repeat;
   height: 100vh;
   color: white;
+  margin-bottom: 20px;
 }
 
 .hero-content {
@@ -42,12 +43,122 @@ header {
   border-radius: 30px;
 }
 
+.about,
+.why-us {
+  padding: 60px 0;
+}
 
-.hero-content .kontak-kami {
+.section-title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: start;
+}
+
+.card {
+  max-width: 700px;
+  padding: 20px 40px 50px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.why-us {
+  position: relative;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.why-us .cards {
+  display: flex;
+
+  position: relative;
+}
+
+.why-us .section-img {
+  width: 450px;
+  height: 350px;
+  border-radius: 20px;
+}
+
+.why-us .section-description {
+  font-size: 16px;
+  position: relative;
+  bottom: -15px;
+  right: 120px;
+  background: #c1ebc4;
   border: 1px solid #2e7d32;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: left;
+  z-index: -1;
+  margin: 0 auto;
+}
 
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: 500;
-  border-radius: 30px;
+.why-us .section-description p {
+  padding: 10px 10px 10px 100px;
+}
+
+footer {
+  background-color: #2e7d32;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .why-us .cards {
+    align-items: center;
+  }
+
+  .why-us .section-description {
+    max-height: 350px;
+    font-size: 16px;
+    position: static;
+  }
+
+  .why-us .section-description p {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
