@@ -65,6 +65,7 @@ a {
   font-weight: 700;
   font-size: 18px;
   line-height: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .brand img {
@@ -84,6 +85,7 @@ a {
   font-weight: 500;
   font-size: 14px;
   color: var(--text-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .links .group {
@@ -154,6 +156,7 @@ input[type="checkbox"] {
   border-radius: var(--radius);
   font-weight: 500;
   font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .btn-signup {
@@ -190,6 +193,7 @@ input[type="checkbox"] {
     height: 32px;
     padding: 10px 15px;
     background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   }
 
   .search input[type="checkbox"]:checked + label + input[type="search"] {
@@ -236,6 +240,7 @@ input[type="checkbox"] {
     border-radius: 10px;
     box-sizing: border-box;
     background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   }
 
   .menu-toggle .sub-links li {
