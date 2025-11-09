@@ -317,10 +317,6 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 420px) {
-  .links {
-    display: none;
-  }
-
   .brand {
     font-size: 16px;
     padding: 8px 12px;
