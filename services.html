@@ -4,50 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layanan - BenihKu</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+    <link rel="stylesheet" href="assets/css/base-style.css" />
+    <link rel="stylesheet" href="assets/css/services-style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <nav class="navbar">
-          <a href="index.html" class="logo">
-            <img src="Assets/Logo.jpeg" alt="Logo BenihKu" />
-            BenihKu
-          </a>
-          <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="products.html">Benih</a></li>
-            <li><a href="services.html" class="active">Layanan</a></li>
-            <li><a href="testimonials.html">Testimoni</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li>
-              <a href="Keranjang.html">
-                <img
-                  src="Assets/Keranjang.png"
-                  alt="Keranjang"
-                  style="
-                    width: 20px;
-                    height: 20px;
-                    vertical-align: middle;
-                    margin-right: 5px;
-                  "
-                />Keranjang</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <nav class="nav-wrap container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+      </a>
 
-    <section class="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>Layanan Kami</h2>
-        </div>
+      <ul class="links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="products.html" class="active">Benih</a></li>
+        <li><a href="services.html">Layanan</a></li>
+        <li><a href="testimonials.html">Testimoni</a></li>
+        <li><a href="contact.html">Kontak</a></li>
+
+        <li class="group">
+          <div class="search">
+            <form action="products.html" method="get">
+              <input type="checkbox" id="search-toggle" />
+              <label for="search-toggle">
+                <ion-icon name="search-outline"></ion-icon>
+              </label>
+              <input type="search" placeholder="Search..." />
+            </form>
+          </div>
+
+          <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+            <ion-icon name="cart-outline"></ion-icon>
+          </a>
+
+          <div class="icon-btn menu-toggle">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="hamburger">
+              <ion-icon name="menu-outline"></ion-icon>
+            </label>
+            <ul class="sub-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="products.html" class="active">Benih</a></li>
+              <li><a href="services.html">Layanan</a></li>
+              <li><a href="testimonials.html">Testimoni</a></li>
+              <li><a href="contact.html">Kontak</a></li>
+              <li><a href="" class="sign-in">Sign In</a></li>
+              <li><a href="" class="sign-up">Sign Up</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <div class="auth-panel">
+        <a href="#" class="sign-in">Sign In</a>
+        <a href="#" class="btn-signup">Sign Up</a>
+      </div>
+    </nav>
+    <main>
+      <header>
+        <h1 class="hero-title">Layanan Kami</h1>
+      </header>
+      <section class="services container">
         <div class="services-grid">
           <div class="service-card">
             <div class="service-image">
-              <img src="Assets/CS.png" alt="Konsultasi Penanaman" />
+              <img src="assets/img/cs.png" alt="Konsultasi Penanaman" />
             </div>
             <h3>Konsultasi Penanaman</h3>
             <p>
@@ -57,7 +85,7 @@
 
           <div class="service-card">
             <div class="service-image">
-              <img src="Assets/Mobil.png" alt="Pengiriman Cepat" />
+              <img src="assets/img/mobil.png" alt="Pengiriman Cepat" />
             </div>
             <h3>Pengiriman Cepat</h3>
             <p>Benih dikirim dengan cepat dan aman ke seluruh Indonesia.</p>
@@ -65,7 +93,7 @@
 
           <div class="service-card">
             <div class="service-image">
-              <img src="Assets/Sertifikat.png" alt="Benih Bersertifikat" />
+              <img src="assets/img/sertifikat.png" alt="Benih Bersertifikat" />
             </div>
             <h3>Benih Bersertifikat</h3>
             <p>
@@ -73,17 +101,8 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
-    <a
-      href="https://wa.me/6289669844839"
-      class="whatsapp-float"
-      target="_blank"
-    >
-      <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo" />
-      <span class="wa-text">Perlu bantuan?</span>
-    </a>
-
+      </section>
+    </main>
     <footer>
       <div class="container">
         <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
