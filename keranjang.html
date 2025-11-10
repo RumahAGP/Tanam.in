@@ -1,72 +1,84 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keranjang Belanja - BenihKu</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <img src="Assets/Logo.jpeg" alt="Logo BenihKu" />
+            BenihKu
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li>
+              <a href="keranjang.html" class="active">
+                <img
+                  src="Assets/Keranjang.png"
+                  alt="Keranjang"
+                  style="
+                    width: 20px;
+                    height: 20px;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                  "
+                />
+                Keranjang
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <a href="index.html" class="logo">
-          <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
-          BenihKu
-        </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="products.html">Benih</a></li>
-          <li><a href="services.html">Layanan</a></li>
-          <li><a href="testimonials.html">Testimoni</a></li>
-          <li><a href="contact.html">Kontak</a></li>
-          <li>
-            <a href="keranjang.html" class="active">
-              <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
-              Keranjang
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <main class="keranjang-container">
+      <h1 class="judul-keranjang">Keranjang Belanja Anda</h1>
 
-  <main class="keranjang-container">
-    <h1 class="judul-keranjang">Keranjang Belanja Anda</h1>
+      <table class="tabel-keranjang">
+        <thead>
+          <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="keranjangContent">
+          <!-- Produk akan ditambahkan oleh JS -->
+        </tbody>
+      </table>
 
-    <table class="tabel-keranjang">
-      <thead>
-        <tr>
-          <th>Produk</th>
-          <th>Harga</th>
-          <th>Jumlah</th>
-          <th>Total</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody id="keranjangContent">
-        <!-- Produk akan ditambahkan oleh JS -->
-      </tbody>
-    </table>
+      <div class="total-harga">
+        <h3>Total: Rp <span id="totalHarga">0</span></h3>
+        <a href="checkout.html" class="tombol-pesan">Lanjut ke Pembayaran</a>
+      </div>
+    </main>
 
-    <div class="total-harga">
-      <h3>Total: Rp <span id="totalHarga">0</span></h3>
-      <a href="checkout.html" class="tombol-pesan">Lanjut ke Pembayaran</a>
-    </div>
-  </main>
+    <a
+      href="https://wa.me/6287714040944"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo" />
+      <span class="wa-text">Perlu bantuan?</span>
+    </a>
 
-<a href="https://wa.me/6287714040944" class="whatsapp-float" target="_blank">
-  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
-  <span class="wa-text">Perlu bantuan?</span>
-</a>
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+      </div>
+    </footer>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
-    </div>
-  </footer>
-
-  <script src="keranjang.js"></script>
-</body>
+    <script src="keranjang.js"></script>
+  </body>
 </html>
