@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .auth-wrapper {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+
+        .register-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            max-width: 480px;
+            width: 100%;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .register-header {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            padding: 35px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .register-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .register-header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .register-body {
+            padding: 35px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px 15px;
+            padding-left: 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 18px;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .btn-register:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+        }
+
+        .alert-success {
+            background: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
+        }
+
+        .password-strength {
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .password-strength.show {
+            display: block;
+        }
+
+        .strength-weak {
+            color: #dc3545;
+        }
+
+        .strength-medium {
+            color: #ffc107;
+        }
+
+        .strength-strong {
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="nav-wrap container">
+        <a href="index.html" class="brand">
+            <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+        </a>
+
+        <ul class="links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="keranjang.html">Keranjang</a></li>
+            <li><a href="orders.html">Riwayat</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+
+            <li class="group">
+                <div class="search">
+                    <form action="/products.html" method="get">
+                        <input type="checkbox" id="search-toggle" />
+                        <label for="search-toggle">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                        <input type="search" placeholder="Search..." />
+                    </form>
+                </div>
+
+                <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+                    <ion-icon name="cart-outline"></ion-icon>
+                </a>
+
+                <div class="icon-btn menu-toggle">
+                    <input type="checkbox" id="menu-toggle" />
+                    <label for="menu-toggle" class="hamburger">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </label>
+                    <ul class="sub-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="products.html">Benih</a></li>
+                        <li><a href="services.html">Layanan</a></li>
+                        <li><a href="testimonials.html">Testimoni</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <!-- Auth buttons added dynamically by auth.js -->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="auth-wrapper">
+        <div class="register-container">
+            <div class="register-header">
+                <h1>Sign Up</h1>
+                <p>Daftar untuk mulai berbelanja di BenihKu</p>
+            </div>
+
+            <div class="register-body">
+                <div class="alert alert-error" id="alertBox"></div>
+
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap *</label>
+                        <div class="input-wrapper">
+                            <ion-icon name="person-outline" class="input-icon"></ion-icon>
+                            <input type="text" id="name" placeholder="Nama lengkap Anda" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <div class="input-wrapper">
+                            <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+                            <input type="email" id="email" placeholder="email@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">No. HP (Opsional)</label>
+                        <div class="input-wrapper">
+                            <ion-icon name="call-outline" class="input-icon"></ion-icon>
+                            <input type="tel" id="phone" placeholder="08123456789">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <div class="input-wrapper">
+                            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+                            <input type="password" id="password" placeholder="Minimal 6 karakter" required
+                                minlength="6">
+                        </div>
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Konfirmasi Password *</label>
+                        <div class="input-wrapper">
+                            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+                            <input type="password" id="confirmPassword" placeholder="Ketik ulang password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-register" id="btnSubmit">Sign Up Sekarang</button>
+                </form>
+
+                <div class="divider"><span>atau</span></div>
+
+                <div class="login-link">
+                    Sudah punya akun? <a href="login.html">Sign In di sini</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/auth.js"></script>
+    <script>
+        const form = document.getElementById('registerForm');
+        const btnSubmit = document.getElementById('btnSubmit');
+        const alertBox = document.getElementById('alertBox');
+        const passwordInput = document.getElementById('password');
+        const passwordStrength = document.getElementById('passwordStrength');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        // Password strength indicator
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            if (password.length === 0) {
+                passwordStrength.classList.remove('show');
+                return;
+            }
+
+            passwordStrength.classList.add('show');
+
+            if (password.length < 6) {
+                passwordStrength.className = 'password-strength show strength-weak';
+                passwordStrength.textContent = '⚠️ Password terlalu lemah (minimal 6 karakter)';
+            } else if (password.length < 10) {
+                passwordStrength.className = 'password-strength show strength-medium';
+                passwordStrength.textContent = '✓ Password cukup kuat';
+            } else {
+                passwordStrength.className = 'password-strength show strength-strong';
+                passwordStrength.textContent = '✓✓ Password sangat kuat';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            // Validate password match
+            if (password !== confirmPassword) {
+                alertBox.className = 'alert alert-error show';
+                alertBox.textContent = 'Password dan konfirmasi password tidak cocok';
+                return;
+            }
+
+            // Show loading
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Mendaftar...';
+            alertBox.classList.remove('show');
+
+            try {
+                const response = await fetch('api/auth/register.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, phone, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Show success
+                    alertBox.className = 'alert alert-success show';
+                    alertBox.textContent = 'Pendaftaran berhasil! Mengalihkan ke beranda...';
+
+                    // Redirect to home
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    throw new Error(data.message || 'Pendaftaran gagal');
+                }
+            } catch (error) {
+                alertBox.className = 'alert alert-error show';
+                alertBox.textContent = error.message;
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Sign Up Sekarang';
+            }
+        });
+    </script>
+</body>
+
+</html>

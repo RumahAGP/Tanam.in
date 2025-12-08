@@ -1,256 +1,152 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Benih - BenihKu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Benih - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/product-style.css" />
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                 <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
-                BenihKu
-                  </a>
-                 <ul class="nav-links">
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="products.html" class="active">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="testimonials.html">Testimoni</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                    <li><a href="Keranjang.html"> <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">Keranjang</a></li>
+  <nav class="nav-wrap container">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+    </a>
 
-                </ul>
-            </nav>
+    <ul class="links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="products.html" class="active">Benih</a></li>
+      <li><a href="services.html">Layanan</a></li>
+      <li><a href="testimonials.html">Testimoni</a></li>
+      <li><a href="keranjang.html">Keranjang</a></li>
+      <li><a href="orders.html">Riwayat</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+
+      <li class="group">
+        <div class="search">
+          <form action="products.html" method="get">
+            <input type="checkbox" id="search-toggle" />
+            <label for="search-toggle">
+              <ion-icon name="search-outline"></ion-icon>
+            </label>
+            <input type="search" placeholder="Search..." name="q" />
+          </form>
         </div>
+
+        <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
+        </a>
+
+        <div class="icon-btn menu-toggle">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+          </label>
+          <ul class="sub-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html" class="active">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <!-- Auth buttons added dynamically by auth.js -->
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Auth panel removed - handled by auth.js -->
+  </nav>
+  <main>
+    <header class="container">
+      <h1 class="hero-title">Katalog Benih Unggulan</h1>
+      <form action="products.html" method="get" class="search-form-products">
+        <div class="search-box">
+          <button type="submit" id="searchBtn"
+            style="border:none; background:none; cursor:pointer; font-size: 1.2rem; display: flex; align-items: center;">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+          <input type="text" id="searchInput" name="q" class="search-input" placeholder="Cari benih..." />
+          <a href="voucher.html" class="voucher"><ion-icon name="ticket-outline"></ion-icon> Voucher</a>
+        </div>
+      </form>
     </header>
-
-        <section class="products">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Katalog Benih Unggulan</h2>
-                </div>
-
-            <div class="search-voucher-container">
-            <!-- Search Box -->
-            <div class="search-box-products">
-                <input type="text" id="searchInput" placeholder="Cari benih...">
-                <button id="searchBtn">Cari benih</button>
-            </div>
-
-            <!-- Menu Voucher -->
-            <div class="menu-voucher">
-                <a href="Voucher.html">
-                    <img src="Assets/Voucher.png" alt="Voucher" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
-                    Voucher
-                </a>
-            </div>
+    <section class="products container">
+      <div class="product-grid" id="productGrid">
+        <!-- Products will be loaded dynamically from API -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+          <p>Memuat produk...</p>
         </div>
+      </div>
+    </section>
+  </main>
 
-
-        <div class="products-grid">
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/Chili.jpg" alt="Benih Cabai">
-                    <img src="assets/Chili2.jpg" alt="Benih Cabai">
-                    <img src="assets/Chili3.jpg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Cabai</h3>
-                    <p>Cabai berkualitas tinggi, cepat tumbuh, tahan penyakit.</p>
-                    <span class="harga-coret">Rp 1.500</span>
-                    <p class="product-price">Rp 500</p>
-                    <a href="detail.html?id=cabai" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-                <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/bayem cover yang ini aja.jpeg" alt="Benih bayam">
-                    <img src="assets/Chili2.jpg" alt="Benih bayam">
-                    <img src="assets/Chili3.jpg" alt="Benih bayam">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Bayem</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=bayem" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-                <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-
-             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-             <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                    <img src="assets/jagung.jpeg" alt="Benih Cabai">
-                    <img src="assets/cover.jpeg" alt="Benih Cabai">
-                </div>
-                
-                <div class="product-info">
-                    <h3>Benih Jagung</h3>
-                    <p>Benih bayam berkualitas tinggi menghasilkan daun bayam hijau yang berkualitas</p>
-                    <span class="harga-coret">Rp500</span>
-                    <p class="product-price">Rp 250</p>
-                    <a href="detail.html?id=jagung" class="btn-small">Lihat produk</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<a href="https://wa.me/6289669844839" class="whatsapp-float" target="_blank">
-  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
-  <span class="wa-text">Perlu bantuan?</span>
-</a>
-<footer>
+  <footer>
     <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+      <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
     </div>
-</footer>
+  </footer>
 
+  <script>
+    // Load products from API
+    async function loadProducts(silent = false) {
+      try {
+        const response = await fetch(`api/products/read.php?is_active=1&t=${new Date().getTime()}`);
+        const data = await response.json();
+
+        const grid = document.getElementById('productGrid');
+
+        if (data.success && data.data.length > 0) {
+          if (!silent) grid.innerHTML = '';
+
+          let newHtml = '';
+          data.data.forEach(product => {
+            const card = `
+              <div class="product-card">
+                <a href="detail.html?id=${product.id}" class="product-img">
+                  <img src="${product.gambar}" alt="${product.nama}" onerror="this.src='assets/img/products/default.jpg'" />
+                </a>
+                <div class="product-info">
+                  <div class="product-meta">
+                    <span class="product-category">${product.kategori || 'Benih'}</span>
+                    <span class="product-rating"><ion-icon name="star"></ion-icon> 4.8</span>
+                  </div>
+                  <a href="detail.html?id=${product.id}" class="product-title">${product.nama}</a>
+                  <div class="price-group">
+                    <span class="product-price">${product.harga}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+            newHtml += card;
+          });
+
+          if (grid.innerHTML !== newHtml) {
+            grid.innerHTML = newHtml;
+          }
+        } else {
+          grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Tidak ada produk tersedia.</p></div>';
+        }
+      } catch (error) {
+        console.error('Error loading products:', error);
+        document.getElementById('productGrid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>Gagal memuat produk. Silakan refresh halaman.</p></div>';
+      }
+    }
+
+    // Load products on page load
+    loadProducts();
+
+    // Realtime: Auto-refresh data every 5 seconds
+    setInterval(() => {
+      loadProducts(true); // true = silent mode
+    }, 5000);
+  </script>
+  <!-- <script src="assets/js/Product.js"></script> -->
+  <script src="assets/js/auth.js?v=2.2"></script>
 </body>
+
 </html>

@@ -1,0 +1,230 @@
+/* --- Checkout Page Styles --- */
+body {
+    background-color: #f5f5f5;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    min-height: 80vh;
+    display: flex;
+    gap: 30px;
+}
+
+.checkout-left {
+    flex: 2;
+}
+
+.checkout-right {
+    flex: 1;
+}
+
+.section-box {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-top: 4px solid transparent;
+}
+
+.section-box.address-section {
+    border-top-color: var(--brand-color);
+    background-image: repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px);
+    background-position-x: -30px;
+    background-size: 116px 3px;
+    background-position-y: 0;
+    background-repeat: repeat-x;
+}
+
+.section-title {
+    font-size: 18px;
+    color: var(--brand-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    text-align: left;
+    /* Override base style */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Map Styles */
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.location-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Product List in Checkout */
+.checkout-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.checkout-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.checkout-item-info h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.checkout-item-info p {
+    font-size: 13px;
+    color: #888;
+}
+
+.checkout-item-price {
+    margin-left: auto;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Shipping Options */
+.shipping-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shipping-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.shipping-option:hover {
+    border-color: var(--brand-color);
+    background: #fafffb;
+}
+
+.shipping-option.active {
+    border-color: var(--brand-color);
+    background: #f0f9f0;
+}
+
+.shipping-option input {
+    margin-right: 15px;
+    accent-color: var(--brand-color);
+}
+
+.ship-info {
+    flex: 1;
+}
+
+.ship-name {
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.ship-desc {
+    font-size: 12px;
+    color: #888;
+}
+
+.ship-price {
+    font-weight: 600;
+    color: var(--brand-color);
+}
+
+/* Order Summary */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--brand-color);
+}
+
+.btn-place-order {
+    width: 100%;
+    background: var(--brand-color);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-place-order:hover {
+    background: #1b5e20;
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+        padding: 100px 15px 40px;
+    }
+}

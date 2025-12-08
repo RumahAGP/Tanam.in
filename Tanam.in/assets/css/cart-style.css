@@ -1,0 +1,350 @@
+/* --- Cart Page Styles (Shopee-like) --- */
+body {
+    background-color: #f5f5f5;
+    /* Ensure body has enough padding for the footer if it's absolute, 
+     but we are using a sticky footer for the cart actions. 
+     We might need to hide the main footer or adjust spacing. */
+}
+
+.keranjang-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
+    /* Added top padding to clear fixed nav */
+    min-height: 80vh;
+}
+
+.judul-keranjang {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.judul-keranjang ion-icon {
+    color: #ee4d2d;
+    /* Shopee Orange */
+    font-size: 24px;
+}
+
+/* --- Cart Header --- */
+.cart-header {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px 30px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #888;
+    text-transform: capitalize;
+}
+
+.cart-col-check {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-col-check input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    cursor: pointer;
+    margin: 0;
+}
+
+.cart-col-product {
+    width: 45%;
+}
+
+.cart-col-price {
+    width: 15%;
+    text-align: center;
+}
+
+.cart-col-qty {
+    width: 15%;
+    text-align: center;
+}
+
+.cart-col-total {
+    width: 15%;
+    text-align: center;
+}
+
+.cart-col-action {
+    width: 5%;
+    text-align: center;
+}
+
+/* --- Cart Items --- */
+.cart-items {
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-details img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+.product-info h4 {
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: 400;
+    line-height: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-info .variant {
+    font-size: 12px;
+    color: #888;
+}
+
+.unit-price {
+    color: #333;
+    font-size: 14px;
+}
+
+.qty-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s;
+}
+
+.qty-btn:hover {
+    background: #f8f8f8;
+}
+
+.qty-input {
+    width: 50px;
+    height: 32px;
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, .09);
+    border-right: 1px solid rgba(0, 0, 0, .09);
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.qty-input:focus {
+    outline: none;
+}
+
+.total-price {
+    color: #ee4d2d;
+    /* Shopee Orange */
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    color: #ee4d2d;
+}
+
+/* --- Cart Footer (Sticky) --- */
+.cart-footer {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, .05);
+    border-top: 1px solid #f1f1f1;
+    z-index: 100;
+    margin-top: 20px;
+}
+
+.cart-footer::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    /* Visual separation */
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+    /* Or gradient if needed */
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.total-text {
+    font-size: 16px;
+    color: #222;
+}
+
+.total-amount {
+    font-size: 24px;
+    color: #ee4d2d;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+opacity: 0.8;
+}
+
+.empty-cart p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.btn-shop {
+    display: inline-block;
+    background: #ee4d2d;
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .keranjang-container {
+        padding: 100px 15px 80px;
+    }
+
+    .cart-header {
+        display: none;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+        position: relative;
+        padding: 15px;
+        padding-bottom: 50px;
+    }
+
+    .cart-col-check {
+        width: 10%;
+    }
+
+    .cart-col-product {
+        width: 90%;
+    }
+
+    .cart-col-price,
+    .cart-col-qty,
+    .cart-col-total {
+        width: auto;
+        margin-top: 15px;
+    }
+
+    .cart-col-price {
+        display: none;
+    }
+
+    /* Hide unit price on mobile */
+
+    .cart-col-qty {
+        margin-left: 10%;
+        /* Align with product details */
+    }
+
+    .cart-col-total {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        font-size: 16px;
+    }
+
+    .cart-col-action {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: auto;
+    }
+
+    .footer-left span {
+        display: none;
+    }
+
+    /* Hide "Pilih Semua" text */
+
+    .btn-checkout {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .total-amount {
+        font-size: 18px;
+    }
+
+    .cart-footer {
+        padding: 10px 15px;
+    }
+}

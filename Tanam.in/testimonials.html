@@ -1,126 +1,156 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimoni - BenihKu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimoni - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/testimonials-style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
-                    BenihKu
-                </a>
-                 <ul class="nav-links">
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="products.html">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="testimonials.html" class="active">Testimoni</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
-                    <li><a href="Keranjang.html"> <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">Keranjang</a></li>
+  <nav class="nav-wrap container">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+    </a>
 
-                </ul>
-            </nav>
+    <ul class="links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="products.html">Benih</a></li>
+      <li><a href="services.html">Layanan</a></li>
+      <li><a href="testimonials.html" class="active">Testimoni</a></li>
+      <li><a href="keranjang.html">Keranjang</a></li>
+      <li><a href="orders.html">Riwayat</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+
+      <li class="group">
+        <div class="search">
+          <form action="products.html" method="get">
+            <input type="checkbox" id="search-toggle" />
+            <label for="search-toggle">
+              <ion-icon name="search-outline"></ion-icon>
+            </label>
+            <input type="search" placeholder="Search..." name="q" />
+          </form>
         </div>
-    </header>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Testimoni Pelanggan</h2>
-            </div>
-            <div class="testimonials-grid">
+        <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
+        </a>
 
-                <div class="testimonial-card">
-                    <img src="Assets/Cewek1.png" alt="Sari Wijaya" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Benih dari BenihKu memiliki daya tumbuh yang tinggi dan hasil panen memuaskan."
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">
-                        <h4>Sari Wijaya</h4>
-                        <p>Pelanggan Setia</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="Assets/Cowok1.png" alt="Budi Santoso" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Panduan dari BenihKu sangat membantu pemula seperti saya untuk menanam dengan benar."
-                    </div>
-                    <div class="stars">★★★★☆</div>
-                    <div class="testimonial-author">
-                        <h4>Budi Santoso</h4>
-                        <p>Pelanggan Baru</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="Assets/Cewek2.jpg" alt="Dewi Lestari" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Pengiriman cepat dan pelayanan ramah, sangat direkomendasikan!"
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">
-                        <h4>Dewi Lestari</h4>
-                        <p>Petani Sayur</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="Assets/Cowok2.png" alt="Rizal Maulana" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Kualitas benihnya benar-benar unggul, tanaman tumbuh seragam dan sehat."
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">
-                        <h4>Rizal Maulana</h4>
-                        <p>Petani Cabai</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="Assets/Cewek3.png" alt="Lina Kartika" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Harga terjangkau dengan hasil maksimal, BenihKu selalu jadi pilihan saya."
-                    </div>
-                    <div class="stars">★★★★☆</div>
-                    <div class="testimonial-author">
-                        <h4>Lina Kartika</h4>
-                        <p>Pelanggan Tetap</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <img src="Assets/Cowok3.png" alt="Andi Pratama" class="testimonial-img">
-                    <div class="testimonial-content">
-                        "Saya puas dengan pelayanan dan konsultasi dari tim BenihKu, sangat profesional!"
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <div class="testimonial-author">
-                        <h4>Andi Pratama</h4>
-                        <p>Pelanggan Baru</p>
-                    </div>
-                </div>
-
-            </div>
+        <div class="icon-btn menu-toggle">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+          </label>
+          <ul class="sub-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html" class="active">Testimoni</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <!-- Auth buttons added dynamically by auth.js -->
+          </ul>
         </div>
+      </li>
+    </ul>
+
+    <!-- Auth panel handled by auth.js -->
+  </nav>
+  <main>
+    <section class="testimonials container">
+      <header>
+        <h1 class="hero-title">Testimoni Pelanggan</h1>
+      </header>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <img src="assets/img/cewek1.png" alt="Sari Wijaya" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Benih dari BenihKu memiliki daya tumbuh yang tinggi dan hasil
+            panen memuaskan."
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <h4>Sari Wijaya</h4>
+            <p>Pelanggan Setia</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="assets/img/cowok2.png" alt="Budi Santoso" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Panduan dari BenihKu sangat membantu pemula seperti saya untuk
+            menanam dengan benar."
+          </div>
+          <div class="stars">★★★★☆</div>
+          <div class="testimonial-author">
+            <h4>Budi Santoso</h4>
+            <p>Pelanggan Baru</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="assets/img/cewek3.png" alt="Dewi Lestari" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Pengiriman cepat dan pelayanan ramah, sangat direkomendasikan!"
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <h4>Dewi Lestari</h4>
+            <p>Ibu Rumah Tangga</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="assets/img/cowok2.png" alt="Rizal Maulana" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Kualitas benihnya benar-benar unggul, tanaman tumbuh seragam dan
+            sehat."
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <h4>Rizal Maulana</h4>
+            <p>Petani Cabai</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="assets/img/cewek1.png" alt="Lina Kartika" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Harga terjangkau dengan hasil maksimal, BenihKu selalu jadi
+            pilihan saya."
+          </div>
+          <div class="stars">★★★★☆</div>
+          <div class="testimonial-author">
+            <h4>Lina Kartika</h4>
+            <p>Pelanggan Tetap</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="assets/img/cowok1.png" alt="Andi Pratama" class="testimonial-img" />
+          <div class="testimonial-content">
+            "Saya puas dengan pelayanan dan konsultasi dari tim BenihKu,
+            sangat profesional!"
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-author">
+            <h4>Andi Pratama</h4>
+            <p>Pelanggan Baru</p>
+          </div>
+        </div>
+      </div>
     </section>
-<a href="https://wa.me/6289669844839" class="whatsapp-float" target="_blank">
-  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
-  <span class="wa-text">Perlu bantuan?</span>
-</a>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
-        </div>
-    </footer>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+  <script src="assets/js/auth.js?v=2.2"></script>
 </body>
+
 </html>

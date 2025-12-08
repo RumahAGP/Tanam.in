@@ -1,79 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontak - BenihKu</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/base-style.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/contact-style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <a href="index.html" class="logo">
-          <img src="Assets/Logo.jpeg" alt="Logo BenihKu">
-          BenihKu
+  <nav class="nav-wrap container">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+    </a>
+
+    <ul class="links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="products.html">Benih</a></li>
+      <li><a href="services.html">Layanan</a></li>
+      <li><a href="testimonials.html">Testimoni</a></li>
+      <li><a href="keranjang.html">Keranjang</a></li>
+      <li><a href="orders.html">Riwayat</a></li>
+      <li><a href="contact.html" class="active">Kontak</a></li>
+
+      <li class="group">
+        <div class="search">
+          <form action="products.html" method="get">
+            <input type="checkbox" id="search-toggle" />
+            <label for="search-toggle">
+              <ion-icon name="search-outline"></ion-icon>
+            </label>
+            <input type="search" placeholder="Search..." name="q" />
+          </form>
+        </div>
+
+        <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
         </a>
-          <ul class="nav-links">
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="products.html">Benih</a></li>
-                    <li><a href="services.html">Layanan</a></li>
-                    <li><a href="testimonials.html">Testimoni</a></li>
-                    <li><a href="contact.html" class="active">Kontak</a></li>
-                    <li><a href="Keranjang.html"> <img src="Assets/Keranjang.png" alt="Keranjang" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">Keranjang</a></li>
 
-                </ul>
-      </nav>
-    </div>
-  </header>
+        <div class="icon-btn menu-toggle">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+          </label>
+          <ul class="sub-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="contact.html" class="active">Kontak</a></li>
+            <!-- Auth buttons added dynamically by auth.js -->
+          </ul>
+        </div>
+      </li>
+    </ul>
 
-  <!-- Contact Section -->
-  <section class="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Hubungi Kami</h2>
+    <!-- Auth panel handled by auth.js -->
+  </nav>
+
+  <main>
+    <section class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Hubungi Kami</h2>
+          <p class="section-subtitle">
+            Punya pertanyaan atau butuh bantuan? Tim kami siap membantu Anda
+            menumbuhkan kebun impian.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="info-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="details">
+                <h3>Alamat Kantor</h3>
+                <p>Universitas Pamulang Viktor, Tangerang Selatan</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="icon-box">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+              <div class="details">
+                <h3>Telepon</h3>
+                <p>+62 812 3456 7890</p>
+                <p>+62 274 123 456</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="details">
+                <h3>Email</h3>
+                <p>info@benihku.com</p>
+                <p>support@benihku.com</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="icon-box">
+                <ion-icon name="time-outline"></ion-icon>
+              </div>
+              <div class="details">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 08:00 - 17:00</p>
+                <p>Sabtu: 09:00 - 15:00</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="form-wrapper">
+            <form class="contact-form">
+              <h3>Kirim Pesan</h3>
+              <div class="form-group">
+                <input type="text" placeholder="Nama Lengkap" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Alamat Email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Subjek Pesan" required />
+              </div>
+              <div class="form-group">
+                <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <ion-icon name="paper-plane-outline"></ion-icon> Kirim Pesan
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-      <form class="contact-form">
-        <div class="form-group">
-          <input type="text" placeholder="Nama Lengkap" required>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="Subjek" required>
-        </div>
-        <div class="form-group">
-          <textarea placeholder="Pesan" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-      </form>
+    </section>
 
-      <!-- Google Maps -->
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.250183965517!2d110.3671!3d-7.8683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57c8f23dfbaf%3A0x1234567890abcdef!2sYogyakarta!5e0!3m2!1sid!2sid!4v1699999999999"
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
+    <!-- Map Section -->
+    <section class="map-section container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.317520703814!2d106.68942931476986!3d-6.352924495398241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e2635555%3A0x476321294469440!2sUniversitas%20Pamulang%20Viktor!5e0!3m2!1sid!2sid!4v1684826345678!5m2!1sid!2sid"
+        width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
 
-  <!-- Tombol WhatsApp Mengambang -->
-<a href="https://wa.me/6289669844839" class="whatsapp-float" target="_blank">
-  <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo">
-  <span class="wa-text">Perlu bantuan?</span>
-</a>
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
     </div>
   </footer>
+  <script src="assets/js/auth.js?v=2.2"></script>
 </body>
+
 </html>

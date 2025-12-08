@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/checkout-style.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <nav class="nav-wrap container">
+        <a href="index.html" class="brand">
+            <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+        </a>
+        <!-- Simplified Nav for Checkout -->
+        <div class="auth-panel" style="margin-left: auto;">
+            <span style="font-weight: 600; color: var(--brand-color);">Checkout Aman</span>
+        </div>
+    </nav>
+
+    <main class="checkout-container">
+        <div class="checkout-left">
+            <!-- Address Section -->
+            <div class="section-box address-section">
+                <h2 class="section-title">
+                    <ion-icon name="location"></ion-icon> Alamat Pengiriman
+                </h2>
+                <form id="addressForm">
+                    <div class="form-group">
+                        <label>Nama Penerima</label>
+                        <input type="text" id="inputName" class="form-control" placeholder="Nama Lengkap" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor Telepon / WhatsApp</label>
+                        <input type="tel" id="inputPhone" class="form-control" placeholder="Contoh: 081234567890"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <input type="text" id="inputAddress" class="form-control"
+                            placeholder="Nama Jalan, Gedung, No. Rumah" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Pilih Lokasi di Peta (Wajib untuk hitung ongkir)</label>
+                        <div id="map"></div>
+                        <div id="distanceInfo" class="location-info">Klik peta untuk tentukan lokasi.</div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Product List -->
+            <div class="section-box">
+                <h2 class="section-title">Produk Dipesan</h2>
+                <div id="productList">
+                    <!-- Items injected by JS -->
+                </div>
+            </div>
+
+            <!-- Shipping Options -->
+            <div class="section-box">
+                <h2 class="section-title">Opsi Pengiriman</h2>
+                <div class="shipping-options">
+                    <label class="shipping-option">
+                        <input type="radio" name="shipping" value="hemat">
+                        <div class="ship-info">
+                            <span class="ship-name">Hemat</span>
+                            <span class="ship-desc">Estimasi 3-5 hari (Rp 500/km)</span>
+                        </div>
+                        <span class="ship-price">Rp0</span>
+                    </label>
+
+                    <label class="shipping-option">
+                        <input type="radio" name="shipping" value="express">
+                        <div class="ship-info">
+                            <span class="ship-name">Reguler Express</span>
+                            <span class="ship-desc">Estimasi 1-2 hari (Rp 1.000/km)</span>
+                        </div>
+                        <span class="ship-price">Rp0</span>
+                    </label>
+
+                    <label class="shipping-option">
+                        <input type="radio" name="shipping" value="instant">
+                        <div class="ship-info">
+                            <span class="ship-name">Instant</span>
+                            <span class="ship-desc">Tiba hari ini (Rp 2.000/km)</span>
+                        </div>
+                        <span class="ship-price">Rp0</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-right">
+            <div class="section-box">
+                <h2 class="section-title">Rincian Pembayaran</h2>
+                <div class="summary-row">
+                    <span>Subtotal Produk</span>
+                    <span id="subtotal">Rp0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Total Ongkos Kirim</span>
+                    <span id="shippingCost">Rp0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Biaya Layanan</span>
+                    <span>Rp1.000</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total Pembayaran</span>
+                    <span id="totalPayment">Rp0</span>
+                </div>
+
+                <button id="btnOrder" class="btn-place-order">Buat Pesanan</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BenihKu. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/js/auth.js?v=2.2"></script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+
+</html>

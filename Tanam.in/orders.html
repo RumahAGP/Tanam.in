@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pesanan - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/cart-style.css" />
+    <style>
+        .orders-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .orders-container {
+                margin: 100px auto 40px;
+            }
+        }
+
+        .orders-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .orders-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .orders-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .order-count {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        .orders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .order-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            border-color: #28a745;
+        }
+
+        .order-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .order-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .order-date {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #cfe2ff;
+            color: #084298;
+        }
+
+        .status-shipped {
+            background: #e7d6f8;
+            color: #59309e;
+        }
+
+        .status-delivered {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .status-cancelled {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .order-items-summary {
+            margin: 15px 0;
+        }
+
+        .order-items-summary p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .order-items-summary strong {
+            color: #333;
+        }
+
+        .order-total {
+            font-size: 20px;
+            font-weight: 700;
+            color: #28a745;
+            margin: 15px 0;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-detail {
+            flex: 1;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-detail:hover {
+            background: #218838;
+        }
+
+        .btn-whatsapp {
+            flex: 1;
+            padding: 10px;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1fb855;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            display: none;
+        }
+
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-state-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state h2 {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .btn-shop {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-shop:hover {
+            background: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .orders-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="nav-wrap container">
+        <a href="index.html" class="brand">
+            <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+        </a>
+
+        <ul class="links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="keranjang.html">Keranjang</a></li>
+            <li><a href="orders.html" class="active">Riwayat</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+
+            <li class="group">
+                <div class="search">
+                    <form action="products.html" method="get">
+                        <input type="checkbox" id="search-toggle" />
+                        <label for="search-toggle">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                        <input type="search" placeholder="Search..." name="q" />
+                    </form>
+                </div>
+
+                <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+                    <ion-icon name="cart-outline"></ion-icon>
+                </a>
+
+                <div class="icon-btn menu-toggle">
+                    <input type="checkbox" id="menu-toggle" />
+                    <label for="menu-toggle" class="hamburger">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </label>
+                    <ul class="sub-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="products.html">Benih</a></li>
+                        <li><a href="services.html">Layanan</a></li>
+                        <li><a href="testimonials.html">Testimoni</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <!-- Auth buttons added dynamically by auth.js -->
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="orders-container">
+        <!-- Header -->
+        <div class="orders-header">
+            <h1>
+                <ion-icon name="receipt-outline" style="vertical-align: middle;"></ion-icon>
+                Riwayat Pesanan
+                <span class="order-count" id="orderCount">0</span>
+            </h1>
+            <p>Pantau semua pesanan Anda di sini</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari berdasarkan nomor pesanan...">
+        </div>
+
+        <!-- Orders Grid -->
+        <div class="orders-grid" id="ordersGrid">
+            <!-- Diisi oleh JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-state-icon">📦</div>
+            <h2>Belum Ada Pesanan</h2>
+            <p>Anda belum memiliki riwayat pesanan</p>
+            <a href="products.html" class="btn-shop">
+                <ion-icon name="storefront-outline" style="vertical-align: middle;"></ion-icon>
+                Mulai Belanja
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/orders.js"></script>
+    <script src="assets/js/auth.js?v=2.2"></script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+/* --- Detail Page Specific Styles --- */
+body {
+    background-color: #f9f9f9;
+}
+
+.bungkus-detail-produk {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 120px auto 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    gap: 40px;
+}
+
+/* --- Left Column: Images --- */
+.detail-gambar {
+    flex: 1;
+    min-width: 350px;
+}
+
+.tombol-kembali {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.tombol-kembali:hover {
+    color: var(--brand-color);
+}
+
+#gambarUtama {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.judul-gambar-lain {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+.daftar-thumbnail {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    cursor: pointer;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.thumb:hover {
+    border-color: var(--brand-color);
+    transform: scale(1.05);
+}
+
+/* --- Right Column: Info --- */
+.detail-info {
+    flex: 1;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#namaProduk {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#deskripsiProduk {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.harga {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#hargaProduk {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color);
+    margin: 0;
+}
+
+.harga-lama {
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* --- Add to Cart Section --- */
+.tambah-ke-keranjang {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.tambah-ke-keranjang label {
+    font-weight: 600;
+    color: #333;
+}
+
+#jumlah {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.tombol-pesan {
+    background-color: var(--brand-color);
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 300px;
+}
+
+.tombol-pesan:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+}
+
+/* --- WhatsApp Float --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+}
+
+.wa-logo {
+    width: 24px;
+    height: 24px;
+}
+
+.wa-text {
+    font-weight: 600;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .bungkus-detail-produk {
+        flex-direction: column;
+        margin: 100px 20px 20px;
+    }
+
+    .detail-gambar,
+    .detail-info {
+        min-width: 100%;
+    }
+
+    #namaProduk {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,296 @@
+/* --- Contact Section Global --- */
+.contact {
+  background: linear-gradient(to bottom, #f0f7f4, #ffffff);
+  /* Light green tint gradient */
+  padding: 80px 0 100px;
+  margin-top: 60px;
+  position: relative;
+}
+
+.contact .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Section Header --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--brand-color);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Add a decorative underline to the title */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffc107;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Contact Wrapper (Split Layout) --- */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  align-items: flex-start;
+  /* Align top to prevent stretching */
+}
+
+/* --- Contact Info Side --- */
+.contact-info {
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-color: #e8f5e9;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background-color: #e8f5e9;
+  color: var(--brand-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover .icon-box {
+  background-color: var(--brand-color);
+  color: #fff;
+  transform: rotate(15deg);
+}
+
+.details h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.details p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 22px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--brand-color);
+  color: #fff;
+  border-color: var(--brand-color);
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* --- Contact Form Side --- */
+.form-wrapper {
+  flex: 1.5;
+  min-width: 400px;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border-top: 6px solid var(--brand-color);
+  /* Accent detail */
+}
+
+/* Add a title inside form wrapper if using updated HTML, otherwise rely on existing structure */
+.form-wrapper::before {
+  /* content: 'Kirim Pesan'; */
+  /* If HTML doesn't have title, we could fake it, but let's stick to cleaning styles */
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 18px 20px;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  color: #333;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-color);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.contact-form .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--brand-color), #218838);
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.contact-form .submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+  background: linear-gradient(135deg, #218838, var(--brand-color));
+}
+
+/* --- Map Section --- */
+.map-section {
+  padding-bottom: 80px;
+  position: relative;
+  /* Separate map with padding */
+}
+
+.map-section iframe {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  filter: grayscale(0.2);
+  /* Modern slightly desaturated map */
+  transition: filter 0.3s ease;
+}
+
+.map-section iframe:hover {
+  filter: grayscale(0);
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-info {
+    order: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .info-item {
+    width: 48%;
+    min-width: 280px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .info-item {
+    width: 100%;
+  }
+
+  .form-wrapper {
+    padding: 30px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+}

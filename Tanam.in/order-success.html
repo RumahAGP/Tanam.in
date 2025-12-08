@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Berhasil - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css" />
+    <link rel="stylesheet" href="assets/css/cart-style.css" />
+    <style>
+        .success-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .success-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+        }
+
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 15px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-header h1 {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+
+        .order-number {
+            font-size: 18px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .order-section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .order-items-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-items-table th {
+            text-align: left;
+            padding: 12px;
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .order-items-table td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-summary {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 15px;
+        }
+
+        .summary-row.total {
+            font-size: 20px;
+            font-weight: 700;
+            color: #28a745;
+            padding-top: 15px;
+            border-top: 2px solid #28a745;
+            margin-top: 10px;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .payment-option {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payment-option:hover {
+            border-color: #28a745;
+            background: #f8fff8;
+        }
+
+        .payment-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .payment-option.selected {
+            border-color: #28a745;
+            background: #f8fff8;
+        }
+
+        .payment-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .payment-details.show {
+            display: block;
+        }
+
+        .bank-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .bank-info strong {
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #555;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .address-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .address-box p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .order-items-table {
+                font-size: 14px;
+            }
+
+            .order-items-table th,
+            .order-items-table td {
+                padding: 8px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                min-width: 100%;
+            }
+        }
+
+        /* Print Styles for Receipt */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .navbar,
+            footer,
+            .action-buttons,
+            .payment-methods,
+            .payment-details {
+                display: none !important;
+            }
+
+            .success-container,
+            .success-container * {
+                visibility: visible;
+            }
+
+            .success-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: 800px;
+                margin: 0;
+                padding: 20px;
+            }
+
+            .order-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            .success-header {
+                background: white !important;
+                color: #333 !important;
+                border: 2px solid #28a745;
+            }
+
+            .order-number {
+                background: #28a745 !important;
+                color: white !important;
+            }
+        }
+    </style>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" style="background: white; padding: 15px 40px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/img/logo.jpeg" alt="BenihKu Logo" style="width: 40px; height: 40px; border-radius: 50%;">
+            <h2 style="color: #28a745; margin: 0;">BenihKu</h2>
+        </div>
+    </nav>
+
+    <main class="success-container">
+        <!-- Success Header -->
+        <div class="success-header">
+            <div class="success-icon">✅</div>
+            <h1>Pesanan Berhasil Dibuat!</h1>
+            <p>Terima kasih telah berbelanja di BenihKu</p>
+            <div class="order-number" id="orderNumber">Order: #ORD-20251206-001</div>
+            <p style="margin-top: 15px; font-size: 14px;" id="orderDate">06 Desember 2025, 17:09</p>
+        </div>
+
+        <!-- Order Items -->
+        <div class="order-section">
+            <h2><ion-icon name="cart-outline" style="vertical-align: middle;"></ion-icon> Detail Pesanan</h2>
+            <table class="order-items-table">
+                <thead>
+                    <tr>
+                        <th>Produk</th>
+                        <th>Harga</th>
+                        <th>Qty</th>
+                        <th style="text-align: right;">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="orderItemsBody">
+                    <!-- Diisi oleh JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="summarySubtotal">Rp0</span>
+                </div>
+                <div class="summary-row">
+                    <span id="shippingMethod">Ongkir (Express - 5.2 km)</span>
+                    <span id="summaryShipping">Rp0</span>
+                </div>
+                <div class="summary-row" id="discountRow" style="display: none;">
+                    <span>Diskon</span>
+                    <span id="summaryDiscount" style="color: #28a745;">-Rp0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>TOTAL BAYAR</span>
+                    <span id="summaryTotal">Rp0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="order-section">
+            <h2><ion-icon name="location-outline" style="vertical-align: middle;"></ion-icon> Alamat Pengiriman</h2>
+            <div class="address-box" id="addressBox">
+                <!-- Diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="order-section">
+            <h2><ion-icon name="card-outline" style="vertical-align: middle;"></ion-icon> Pilih Metode Pembayaran</h2>
+            <div class="payment-methods">
+                <label class="payment-option" data-method="cod">
+                    <input type="radio" name="payment" value="cod" checked>
+                    <div>
+                        <strong>💵 COD (Bayar di Tempat)</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">Bayar tunai saat barang diterima</p>
+                    </div>
+                </label>
+
+                <label class="payment-option" data-method="transfer">
+                    <input type="radio" name="payment" value="transfer">
+                    <div>
+                        <strong>🏦 Transfer Bank</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">Transfer ke rekening toko</p>
+                    </div>
+                </label>
+
+                <label class="payment-option" data-method="ewallet">
+                    <input type="radio" name="payment" value="ewallet">
+                    <div>
+                        <strong>📱 E-Wallet</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">Gopay, OVO, Dana, ShopeePay</p>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Bank Transfer Details -->
+            <div class="payment-details" id="transferDetails">
+                <strong>📋 Silakan transfer ke rekening berikut:</strong>
+                <div class="bank-info">
+                    <strong>BCA</strong> - 1234567890<br>
+                    a.n. BenihKu Official
+                </div>
+                <div class="bank-info">
+                    <strong>Mandiri</strong> - 0987654321<br>
+                    a.n. BenihKu Official
+                </div>
+                <p style="margin-top: 10px; font-size: 13px; color: #666;">
+                    ⚠️ Transfer sesuai total pembayaran. Konfirmasi via WhatsApp setelah transfer.
+                </p>
+            </div>
+
+            <!-- E-Wallet Details -->
+            <div class="payment-details" id="ewalletDetails">
+                <strong>📱 Transfer ke nomor berikut:</strong>
+                <div class="bank-info">
+                    <strong>Gopay / OVO / Dana</strong><br>
+                    08123456789 (a.n. BenihKu)
+                </div>
+                <div class="bank-info">
+                    <strong>ShopeePay</strong><br>
+                    08123456789 (a.n. BenihKu)
+                </div>
+                <p style="margin-top: 10px; font-size: 13px; color: #666;">
+                    ⚠️ Transfer sesuai total pembayaran. Konfirmasi via WhatsApp setelah transfer.
+                </p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="btnWhatsApp">
+                <ion-icon name="logo-whatsapp" style="vertical-align: middle;"></ion-icon> Konfirmasi via WhatsApp
+            </button>
+            <button class="btn btn-secondary" onclick="window.print()">
+                <ion-icon name="download-outline" style="vertical-align: middle;"></ion-icon> Download Struk
+            </button>
+            <a href="orders.html" class="btn btn-secondary">
+                <ion-icon name="list-outline" style="vertical-align: middle;"></ion-icon> Lihat Riwayat
+            </a>
+            <a href="products.html" class="btn btn-secondary">
+                <ion-icon name="storefront-outline" style="vertical-align: middle;"></ion-icon> Kembali Belanja
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/order-success.js"></script>
+</body>
+
+</html>

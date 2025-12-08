@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Pesanan - Admin BenihKu</title>
+    <link rel="stylesheet" href="../assets/css/base-style.css" />
+    <link rel="stylesheet" href="../assets/css/cart-style.css" />
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-cancelled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .btn-view {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .close-modal {
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .order-details-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .order-items-table {
+            width: 100%;
+            margin-top: 15px;
+            border: 1px solid #eee;
+        }
+
+        .order-items-table th {
+            background: #f1f1f1;
+            padding: 8px;
+        }
+
+        .order-items-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .status-select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-update {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: #f1f1f1;
+        }
+
+        .filter-btn.active {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .btn-pdf {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-pdf:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-wrap container">
+        <a href="../index.html" class="brand">
+            <img src="../assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu Admin
+        </a>
+        <ul class="links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="products.html">Produk</a></li>
+            <li><a href="orders.html" class="active">Pesanan</a></li>
+            <li class="auth-link"><a href="#" onclick="logout(); return false;" style="color: #dc3545;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="admin-container">
+        <div class="page-header">
+            <h1>Kelola Pesanan</h1>
+            <div style="display:flex; gap:10px;">
+                <button class="btn-pdf" onclick="downloadPDF()">
+                    <ion-icon name="document-text-outline"></ion-icon> Download Laporan PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterOrders('all')">Semua</button>
+            <button class="filter-btn" onclick="filterOrders('pending')">Pending</button>
+            <button class="filter-btn" onclick="filterOrders('processing')">Diproses</button>
+            <button class="filter-btn" onclick="filterOrders('shipping')">Dikirim</button>
+            <button class="filter-btn" onclick="filterOrders('completed')">Selesai</button>
+            <button class="filter-btn" onclick="filterOrders('cancelled')">Dibatalkan</button>
+        </div>
+
+        <div class="table-responsive">
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>No. Pesanan</th>
+                        <th>Pelanggan</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Tanggal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                    <tr>
+                        <td colspan="6" style="text-align:center;">Memuat data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Order Detail Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detail Pesanan #<span id="modalOrderId"></span></h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/auth.js?v=5.3"></script>
+    <script>
+        // Global state
+        let currentFilter = 'all';
+        let allOrders = [];
+
+        // Check Admin
+        async function checkAdmin() {
+            const user = await checkAuth();
+            if (!user || user.role !== 'admin') {
+                if (!user) window.location.href = '../login.html';
+                else window.location.href = '../index.html';
+            }
+        }
+        checkAdmin();
+
+        // Load Orders
+        async function loadOrders(silent = false) {
+            try {
+                const response = await fetch(`../api/orders/read.php?t=${new Date().getTime()}`);
+                const result = await response.json();
+
+                // Debug to console
+                if (!silent) console.log("Read API Result:", result);
+
+                if (result.success) {
+                    allOrders = result.data; // Store globally
+                    renderOrders();
+                } else {
+                    if (!silent) {
+                        document.getElementById('ordersTableBody').innerHTML = '<tr><td colspan="6" style="text-align:center;">Belum ada pesanan.</td></tr>';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading orders:', error);
+                if (!silent) {
+                    document.getElementById('ordersTableBody').innerHTML = '<tr><td colspan="6" style="text-align:center; color:red;">Gagal memuat data.</td></tr>';
+                }
+            }
+        }
+        loadOrders();
+
+        // Print Receipt Function
+        function printReceipt(orderNumber) {
+            const order = allOrders.find(o => o.orderNumber == orderNumber);
+            if (!order) return alert("Data pesanan tidak ditemukan");
+
+            const customerName = order.address ? order.address.name : 'Guest';
+            const customerPhone = order.address ? order.address.phone : '-';
+            const customerAddr = order.address ? order.address.address : '-';
+
+            let itemsHtml = '';
+            order.items.forEach(item => {
+                itemsHtml += `
+                    <tr>
+                        <td>${item.nama} x ${item.jumlah}</td>
+                        <td style="text-align:right;">${parseInt(item.harga * item.jumlah).toLocaleString('id-ID')}</td>
+                    </tr>
+                `;
+            });
+
+            // Open window without formatting first
+            const printWindow = window.open('', '', 'width=400,height=600');
+
+            // Build content
+            const content = `
+                <html>
+                <head>
+                    <title>Resi #${order.orderNumber}</title>
+                    <style>
+                        body { font-family: 'Courier New', monospace; font-size: 12px; margin: 0; padding: 20px; color: #000; }
+                        .header { text-align: center; margin-bottom: 20px; border-bottom: 1px dashed #000; padding-bottom: 10px; }
+                        .header h2 { margin: 0; font-size: 16px; }
+                        .info { margin-bottom: 10px; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                        td { vertical-align: top; }
+                        .totals { margin-top: 10px; border-top: 1px dashed #000; paddingTop: 5px; }
+                        .totals table tr td:last-child { text-align: right; }
+                        .footer { margin-top: 20px; text-align: center; font-size: 10px; }
+                        
+                        /* Controls for screen only */
+                        .actions { margin-top: 30px; text-align: center; border-top: 2px solid #eee; padding-top: 15px; }
+                        .btn { padding: 8px 15px; cursor: pointer; border: 1px solid #ccc; background: #f8f9fa; border-radius: 4px; font-weight: bold; margin: 0 5px; }
+                        .btn-print { background: #28a745; color: white; border-color: #28a745; }
+                        
+                        @media print { 
+                            @page { margin: 0; } 
+                            body { padding: 10px; }
+                            .no-print { display: none !important; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h2>BENIHKU STORE</h2>
+                        <p>Universitas Pamulang Viktor<br>Tangerang Selatan</p>
+                    </div>
+                    
+                    <div class="info">
+                        No. Resi: ${order.orderNumber}<br>
+                        Tgl    : ${new Date(order.date).toLocaleString('id-ID')}<br>
+                        --------------------------------
+                    </div>
+                    
+                    <div class="info">
+                        <b>Penerima:</b><br>
+                        ${customerName}<br>
+                        ${customerPhone}<br>
+                        ${customerAddr}
+                    </div>
+
+                    <table>
+                        ${itemsHtml}
+                    </table>
+
+                    <div class="totals">
+                        <table>
+                            <tr><td>Subtotal</td><td>${parseInt(order.subtotal || order.total).toLocaleString('id-ID')}</td></tr>
+                            <tr><td>Ongkir (${order.shipping.method})</td><td>${parseInt(order.shipping.cost).toLocaleString('id-ID')}</td></tr>
+                            ${order.discount > 0 ? `<tr><td>Diskon</td><td>-${parseInt(order.discount).toLocaleString('id-ID')}</td></tr>` : ''}
+                            <tr style="font-weight:bold; font-size:14px;">
+                                <td style="padding-top:5px;">TOTAL</td>
+                                <td style="padding-top:5px;">Rp ${parseInt(order.total).toLocaleString('id-ID')}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="footer">
+                        <br>
+                        Terima Kasih Telah Berbelanja!<br>
+                        Simpan struk ini sebagai bukti pembayaran.
+                    </div>
+
+                    <!-- Manual Controls (Hidden on Print) -->
+                    <div class="actions no-print">
+                        <button class="btn btn-print" onclick="window.print()">🖨️ Print Sekarang</button>
+                        <button class="btn" onclick="window.close()">Tutup</button>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            printWindow.document.write(content);
+            printWindow.document.close();
+            // Do NOT auto print and close. Let user decide.
+        }
+
+        // Realtime: Auto-refresh data every 5 seconds
+        setInterval(() => {
+            if (!document.querySelector('.modal.show')) {
+                loadOrders(true);
+            }
+        }, 5000);
+
+        // Filter Function
+        function filterOrders(status) {
+            currentFilter = status;
+
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            renderOrders();
+        }
+
+        // Render Orders based on filter
+        function renderOrders() {
+            const tbody = document.getElementById('ordersTableBody');
+            let filteredData = allOrders;
+
+            if (currentFilter !== 'all') {
+                filteredData = allOrders.filter(order => order.status === currentFilter);
+            }
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Tidak ada pesanan.</td></tr>';
+                return;
+            }
+
+            // Build HTML
+            let html = '';
+            filteredData.forEach(order => {
+                let statusClass = 'status-pending';
+                if (order.status === 'processing') statusClass = 'status-processing';
+                if (order.status === 'shipping') statusClass = 'status-processing';
+                if (order.status === 'completed') statusClass = 'status-completed';
+                if (order.status === 'cancelled') statusClass = 'status-cancelled';
+
+                // Display Status Label
+                let displayStatus = order.status;
+                if (order.status === 'processing') displayStatus = 'Diproses';
+                if (order.status === 'shipping') displayStatus = 'Dikirim';
+                if (order.status === 'completed') displayStatus = 'Selesai';
+                if (order.status === 'cancelled') displayStatus = 'Dibatalkan';
+
+                const customerName = order.address ? order.address.name : 'Guest';
+                const customerPhone = order.address ? order.address.phone : '-';
+
+                html += `
+                    <tr>
+                        <td>#${order.orderNumber}</td>
+                        <td>
+                            <div style="font-weight:600;">${customerName}</div>
+                            <div style="font-size:12px; color:#666;">${customerPhone}</div>
+                        </td>
+                        <td>Rp ${parseInt(order.total).toLocaleString('id-ID')}</td>
+                        <td><span class="status-badge ${statusClass}">${displayStatus}</span></td>
+                        <td>${new Date(order.date).toLocaleDateString('id-ID')}</td>
+                        <td>
+                            <button class="btn-view" onclick="viewOrder('${order.orderNumber}')">Detail</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            if (tbody.innerHTML !== html) {
+                tbody.innerHTML = html;
+            }
+        }
+
+        // Download PDF Report
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text(`Laporan Pesanan - ${new Date().toLocaleDateString('id-ID')}`, 14, 20);
+
+            doc.autoTable({
+                startY: 30,
+                html: '#ordersTable',
+                columns: [
+                    { header: 'No. Pesanan', dataKey: 'id' },
+                    { header: 'Pelanggan', dataKey: 'customer' },
+                    { header: 'Total', dataKey: 'total' },
+                    { header: 'Status', dataKey: 'status' },
+                    { header: 'Tanggal', dataKey: 'date' }
+                ],
+                didParseCell: function (data) {
+                    if (data.column.index === 5) { // Hide Action column
+                        data.cell.styles.display = 'none';
+                    }
+                }
+            });
+
+            doc.save('laporan-pesanan.pdf');
+        }
+
+        // View Order Details
+        async function viewOrder(orderNumber) {
+            try {
+                // Fetch fresh data
+                const productResponse = await fetch(`../api/orders/read.php?t=${new Date().getTime()}`);
+                const data = await productResponse.json();
+                const order = data.data.find(o => o.orderNumber == orderNumber);
+
+                if (order) {
+                    document.getElementById('modalOrderId').innerText = order.orderNumber;
+
+                    let itemsHtml = '';
+                    if (order.items && order.items.length > 0) {
+                        itemsHtml = `
+                            <table class="order-items-table">
+                                <thead>
+                                    <tr>
+                                        <th>Produk</th>
+                                        <th>Harga</th>
+                                        <th>Qty</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        `;
+                        order.items.forEach(item => {
+                            itemsHtml += `
+                                <tr>
+                                    <td>${item.nama}</td>
+                                    <td>Rp ${parseInt(item.harga).toLocaleString('id-ID')}</td>
+                                    <td>${item.jumlah}</td>
+                                    <td>Rp ${parseInt(item.harga * item.jumlah).toLocaleString('id-ID')}</td>
+                                </tr>
+                           `;
+                        });
+                        itemsHtml += `</tbody></table>`;
+                    }
+
+                    const content = document.getElementById('modalContent');
+                    const customerName = order.address ? order.address.name : 'Guest';
+                    const customerPhone = order.address ? order.address.phone : '-';
+                    const customerAddr = order.address ? order.address.address : '-';
+
+                    content.innerHTML = `
+                        <div class="order-details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Pelanggan:</span>
+                                <span>${customerName} (${customerPhone})</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Alamat:</span>
+                                <span>${customerAddr}</span>
+                            </div>
+                             <div class="detail-item">
+                                <span class="detail-label">Pengiriman:</span>
+                                <span>${order.shipping.method} (Rp ${parseInt(order.shipping.cost).toLocaleString('id-ID')})</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Total Bayar:</span>
+                                <span style="font-size:18px; font-weight:bold; color:#28a745;">Rp ${parseInt(order.total).toLocaleString('id-ID')}</span>
+                            </div>
+                        </div>
+
+                        ${itemsHtml}
+
+                        <!-- Action Buttons -->
+                         <div style="display:flex; gap:10px; margin-top:20px; align-items:center;">
+                            <button type="button" onclick="printReceipt('${order.orderNumber}')" style="background:#6c757d; color:white; border:none; padding:10px 15px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:5px;">
+                                <ion-icon name="print-outline"></ion-icon> Cetak Resi
+                            </button>
+                        </div>
+
+                        <h3 style="margin-top:20px;">Update Status</h3>
+                        <form onsubmit="updateStatus(event, '${order.orderNumber}')">
+                            <select name="status" class="status-select">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Diproses</option>
+                                <option value="shipping" ${order.status === 'shipping' ? 'selected' : ''}>Dikirim</option>
+                                <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>Selesai</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Dibatalkan</option>
+                            </select>
+                            <button type="submit" class="btn-update">Simpan Perubahan</button>
+                        </form>
+                     `;
+
+                    document.getElementById('orderModal').classList.add('show');
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Gagal memuat detail pesanan');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('show');
+        }
+
+        async function updateStatus(e, orderNumber) {
+            e.preventDefault();
+            const status = e.target.status.value;
+            const btn = e.target.querySelector('button');
+
+            btn.disabled = true;
+            btn.innerText = 'Menyimpan...';
+
+            try {
+                // api/orders/update_status.php requires order_number
+                const response = await fetch('../api/orders/update_status.php', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ order_number: orderNumber, status: status })
+                });
+
+                const result = await response.json();
+
+                if (result.success || response.ok) {
+                    alert('Status berhasil diupdate!');
+                    closeModal();
+                    loadOrders();
+                } else {
+                    alert('Gagal update status: ' + (result.message || 'Unknown error'));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Gagal update status.');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Simpan Perubahan';
+            }
+        }
+    </script>
+</body>
+
+</html>
