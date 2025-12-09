@@ -1,189 +1,148 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Voucher Promo - BenihKu</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container navbar">
-        <a href="index.html" class="logo">
-          <img src="assets/Logo.jpeg" alt="Logo BenihKu" />
-          BenihKu
-        </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="products.html">Benih</a></li>
-          <li><a href="services.html">Layanan</a></li>
-          <li><a href="testimonials.html">Testimoni</a></li>
-          <li><a href="contact.html">Kontak</a></li>
-          <li>
-            <a href="Keranjang.html">
-              <img
-                src="Assets/Keranjang.png"
-                alt="Keranjang"
-                style="
-                  width: 20px;
-                  height: 20px;
-                  vertical-align: middle;
-                  margin-right: 5px;
-                "
-              />Keranjang</a
-            >
-          </li>
-        </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voucher Promo - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Reuse checkout custom for card styles if needed or add inline/new css -->
+  <link rel="stylesheet" href="assets/css/checkout-custom.css" />
+  <link rel="stylesheet" href="assets/css/voucher-style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-wrap container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+      </a>
+
+      <ul class="links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="products.html">Benih</a></li>
+        <li><a href="services.html">Layanan</a></li>
+        <li><a href="testimonials.html">Testimoni</a></li>
+        <li><a href="contact.html">Kontak</a></li>
+
+        <li class="group">
+          <div class="search">
+            <form action="products.html" method="get">
+              <input type="checkbox" id="search-toggle" />
+              <label for="search-toggle">
+                <ion-icon name="search-outline"></ion-icon>
+              </label>
+              <input type="search" placeholder="Search..." name="q" />
+            </form>
+          </div>
+
+          <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+            <ion-icon name="cart-outline"></ion-icon>
+          </a>
+
+          <div class="icon-btn menu-toggle">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="hamburger">
+              <ion-icon name="menu-outline"></ion-icon>
+            </label>
+            <ul class="sub-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="products.html">Benih</a></li>
+              <li><a href="services.html">Layanan</a></li>
+              <li><a href="testimonials.html">Testimoni</a></li>
+              <li><a href="contact.html">Kontak</a></li>
+              <li><a href="signin.html" class="sign-in">Sign In</a></li>
+              <li><a href="signup.html" class="sign-up">Sign Up</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <div class="auth-panel">
+        <a href="signin.html" class="sign-in">Sign In</a>
+        <a href="signup.html" class="btn-signup">Sign Up</a>
       </div>
-    </header>
+    </nav>
+  </header>
 
-    <section class="voucher-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Voucher Promo Spesial Untuk Anda</h2>
-          <p>
-            Gunakan kode voucher di bawah ini untuk mendapatkan diskon menarik
-            saat checkout!
-          </p>
-        </div>
+  <section class="voucher-section voucher-container">
+    <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+      <h2><ion-icon name="ticket-outline" style="vertical-align: bottom;"></ion-icon> Info Voucher</h2>
+      <p style="margin: 0; text-align: left;">
+        Gunakan kode voucher di bawah ini untuk mendapatkan diskon menarik saat checkout!
+      </p>
+    </div>
 
-        <div class="search-voucher-container">
-          <div class="search-box-products">
-            <input
-              type="text"
-              id="searchVoucher"
-              placeholder="Cari voucher..."
-            />
-            <button id="searchVoucherBtn">Cari</button>
-          </div>
-          <div class="menu-voucher">
-            <a href="keranjang.html">Lihat Keranjang</a>
-          </div>
-        </div>
+    <div class="search-voucher-container">
+      <div class="search-box-products">
+        <input type="text" id="searchVoucher" placeholder="Cari info voucher..." />
+        <button id="searchVoucherBtn">Cari</button>
+      </div>
+      <a href="keranjang.html" class="back-link">
+        <ion-icon name="arrow-back-circle-outline" size="large"></ion-icon> Kembali ke Keranjang
+      </a>
+    </div>
 
-        <div class="voucher-list" id="daftarVoucher">
-          <div class="voucher-card">
-            <h3>Diskon 10%</h3>
-            <p>Potongan harga 10% untuk semua produk BenihKu.</p>
-            <div class="voucher-code">
-              <input type="text" value="BENIH10" readonly />
-
-              <button onclick="salinKode(this)">Salin</button>
-
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Gratis Ongkir</h3>
-            <p>Nikmati bebas biaya kirim untuk pembelian di atas Rp100.000.</p>
-            <div class="voucher-code">
-              <input type="text" value="ONGKIRFREE" readonly />
-
-              <button onclick="salinKode(this)">Salin</button>
-
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Cashback 15%</h3>
-            <p>Dapatkan cashback hingga 15% untuk pembelian bibit unggul.</p>
-            <div class="voucher-code">
-              <input type="text" value="CASHBACK15" readonly />
-
-              <button onclick="salinKode(this)">Salin</button>
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Diskon 20%</h3>
-            <p>Potongan harga 20% untuk pembelian di atas Rp200.000.</p>
-            <div class="voucher-code">
-              <input type="text" value="BENIH20" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Beli 2 Gratis 1</h3>
-            <p>
-              Dapatkan 1 produk gratis untuk setiap pembelian 2 produk tertentu.
-            </p>
-            <div class="voucher-code">
-              <input type="text" value="B2G1BENIH" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Diskon Member</h3>
-            <p>
-              Diskon 25% untuk pelanggan setia yang terdaftar sebagai member.
-            </p>
-            <div class="voucher-code">
-              <input type="text" value="MEMBER25" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Voucher Ulang Tahun</h3>
-            <p>Dapatkan potongan Rp50.000 di bulan ulang tahun Anda.</p>
-            <div class="voucher-code">
-              <input type="text" value="HBD50K" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Diskon Flash Sale</h3>
-            <p>Diskon hingga 40% selama periode Flash Sale berlangsung!</p>
-            <div class="voucher-code">
-              <input type="text" value="FLASH40" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Diskon Spesial Weekend</h3>
-            <p>Nikmati potongan harga 30% setiap Sabtu dan Minggu.</p>
-            <div class="voucher-code">
-              <input type="text" value="WEEKEND30" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <h3>Diskon Pengguna Baru</h3>
-            <p>
-              Voucher khusus pengguna baru dengan potongan 20% di pembelian
-              pertama.
-            </p>
-            <div class="voucher-code">
-              <input type="text" value="NEWUSER20" readonly />
-              <button>Salin</button>
-            </div>
-          </div>
+    <div class="voucher-list" id="daftarVoucher">
+      <!-- Card 1 -->
+      <div class="voucher-card">
+        <h3>Diskon 10%</h3>
+        <p>Potongan harga 10% untuk semua produk benih.</p>
+        <div class="voucher-code">
+          <input type="text" value="BENIH10" readonly />
+          <button class="btn-salin" onclick="salinKode(this)">Salin</button>
         </div>
       </div>
-    </section>
 
-    <a
-      href="https://wa.me/6287714040944"
-      class="whatsapp-float"
-      target="_blank"
-    >
-      <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo" />
-      <span class="wa-text">Perlu bantuan?</span>
-    </a>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+      <!-- Card 2 -->
+      <div class="voucher-card">
+        <h3>Gratis Ongkir</h3>
+        <p>Potongan ongkir flat Rp 10.000 untuk pembelian di atas Rp 50rb.</p>
+        <div class="voucher-code">
+          <input type="text" value="ONGKIRFREE" readonly />
+          <button class="btn-salin" onclick="salinKode(this)">Salin</button>
+        </div>
       </div>
-    </footer>
-    <script src="voucher.js"></script>
-  </body>
+
+      <!-- Card 3 -->
+      <div class="voucher-card">
+        <h3>Diskon Spesial 50rb</h3>
+        <p>Potongan langsung Rp 50.000 untuk pembelian besar.</p>
+        <div class="voucher-code">
+          <input type="text" value="HBD50K" readonly />
+          <button class="btn-salin" onclick="salinKode(this)">Salin</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="voucher-card">
+        <h3>Diskon 15%</h3>
+        <p>Cashback / Diskon 15% spesial bibit buah.</p>
+        <div class="voucher-code">
+          <input type="text" value="CASHBACK15" readonly />
+          <button class="btn-salin" onclick="salinKode(this)">Salin</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <a href="https://wa.me/6287714040944" class="whatsapp-float" target="_blank">
+    <img src="assets/img/wa.png" alt="WhatsApp" class="wa-logo" />
+    <span class="wa-text">Perlu bantuan?</span>
+  </a>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/voucher.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
 </html>

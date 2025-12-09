@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keranjang Belanja - BenihKu</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <nav class="navbar">
-          <a href="index.html" class="logo">
-            <img src="Assets/Logo.jpeg" alt="Logo BenihKu" />
-            BenihKu
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang & Checkout - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css" />
+  <!-- Custom Checkout Styles -->
+  <link rel="stylesheet" href="assets/css/checkout-custom.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-wrap container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+      </a>
+
+      <ul class="links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="products.html">Benih</a></li>
+        <li><a href="services.html">Layanan</a></li>
+        <li><a href="testimonials.html">Testimoni</a></li>
+        <li><a href="contact.html">Kontak</a></li>
+
+        <li class="group">
+          <div class="search">
+            <form action="products.html" method="get">
+              <input type="checkbox" id="search-toggle" />
+              <label for="search-toggle">
+                <ion-icon name="search-outline"></ion-icon>
+              </label>
+              <input type="search" placeholder="Search..." name="q" />
+            </form>
+          </div>
+
+          <a href="keranjang.html" class="icon-btn cart active" aria-label="Cart">
+            <ion-icon name="cart-outline"></ion-icon>
           </a>
-          <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="products.html">Benih</a></li>
-            <li><a href="services.html">Layanan</a></li>
-            <li><a href="testimonials.html">Testimoni</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li>
-              <a href="keranjang.html" class="active">
-                <img
-                  src="Assets/Keranjang.png"
-                  alt="Keranjang"
-                  style="
-                    width: 20px;
-                    height: 20px;
-                    vertical-align: middle;
-                    margin-right: 5px;
-                  "
-                />
-                Keranjang
-              </a>
-            </li>
-          </ul>
-        </nav>
+
+          <div class="icon-btn menu-toggle">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="hamburger">
+              <ion-icon name="menu-outline"></ion-icon>
+            </label>
+            <ul class="sub-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="products.html">Benih</a></li>
+              <li><a href="services.html">Layanan</a></li>
+              <li><a href="testimonials.html">Testimoni</a></li>
+              <li><a href="contact.html">Kontak</a></li>
+              <li><a href="signin.html" class="sign-in">Sign In</a></li>
+              <li><a href="signup.html" class="sign-up">Sign Up</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <div class="auth-panel">
+        <a href="signin.html" class="sign-in">Sign In</a>
+        <a href="signup.html" class="btn-signup">Sign Up</a>
       </div>
-    </header>
+    </nav>
+  </header>
 
-    <main class="keranjang-container">
-      <h1 class="judul-keranjang">Keranjang Belanja Anda</h1>
+  <main class="keranjang-container">
+    <h1 class="judul-keranjang">
+      <ion-icon name="cart"></ion-icon> Keranjang & Checkout
+    </h1>
 
+    <!-- Section: Cart Items -->
+    <div class="checkout-card">
       <table class="tabel-keranjang">
         <thead>
           <tr>
-            <th>Produk</th>
-            <th>Harga</th>
-            <th>Jumlah</th>
-            <th>Total</th>
+            <th width="40%">Produk</th>
+            <th>Harga Satuan</th>
+            <th>Kuantitas</th>
+            <th>Total Harga</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -57,28 +87,82 @@
           <!-- Produk akan ditambahkan oleh JS -->
         </tbody>
       </table>
+    </div>
 
-      <div class="total-harga">
-        <h3>Total: Rp <span id="totalHarga">0</span></h3>
-        <a href="checkout.html" class="tombol-pesan">Lanjut ke Pembayaran</a>
+    <!-- Section: Shipping Address -->
+    <div class="checkout-card">
+      <h2 class="form-section-title">
+        <ion-icon name="location"></ion-icon> Alamat Pengiriman
+      </h2>
+      <form id="checkoutForm">
+        <div class="checkout-form-group">
+          <label class="checkout-form-label">Nama Penerima</label>
+          <input type="text" id="nama" class="checkout-form-input" placeholder="Nama Lengkap" required>
+        </div>
+
+        <div class="checkout-form-group">
+          <label class="checkout-form-label">Nomor Telepon / WhatsApp</label>
+          <input type="tel" id="telepon" class="checkout-form-input" placeholder="Contoh: 081234567890" required>
+        </div>
+
+        <div class="checkout-form-group">
+          <label class="checkout-form-label">Alamat Lengkap</label>
+          <input type="text" id="alamat" class="checkout-form-input"
+            placeholder="Jalan, No. Rumah, RT/RW, Kota, Kode Pos" required>
+        </div>
+
+        <div class="checkout-form-group">
+          <label class="checkout-form-label">Patokan (Opsional)</label>
+          <input type="text" id="patokan" class="checkout-form-input" placeholder="Contoh: Dekat Warung Makan Pak Budi">
+        </div>
+      </form>
+    </div>
+
+    <!-- Section: Voucher & Total -->
+    <div class="checkout-card">
+      <div class="voucher-input-group" style="display: flex; gap: 10px; margin-bottom: 20px; align-items: flex-end;">
+        <div style="flex: 1;">
+          <label class="checkout-form-label"><ion-icon name="ticket" style="vertical-align: middle;"></ion-icon> Kode
+            Voucher</label>
+          <input type="text" id="kodeVoucher" class="checkout-form-input" placeholder="Masukkan kode promo">
+        </div>
+        <button type="button" id="btnPakaiVoucher" class="btn-checkout"
+          style="background-color: #f57f17; padding: 12px 20px;">Pakai</button>
       </div>
-    </main>
 
-    <a
-      href="https://wa.me/6287714040944"
-      class="whatsapp-float"
-      target="_blank"
-    >
-      <img src="Assets/WA.png" alt="WhatsApp" class="wa-logo" />
-      <span class="wa-text">Perlu bantuan?</span>
-    </a>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+      <div class="checkout-footer"
+        style="flex-direction: column; align-items: flex-end; border-top: 1px solid #eee; padding-top: 20px;">
+        <div class="total-summary" style="margin-bottom: 5px;">
+          <span class="total-label">Subtotal:</span>
+          <span class="total-amount" id="subtotalHarga" style="font-size: 18px; color: #555;">Rp 0</span>
+        </div>
+        <div class="total-summary" id="diskonRow" style="margin-bottom: 5px; display: none;">
+          <span class="total-label">Diskon:</span>
+          <span class="total-amount" id="diskonHarga" style="font-size: 18px; color: #2e7d32;">-Rp 0</span>
+        </div>
+        <div class="total-summary">
+          <span class="total-label" style="font-size: 18px; color: #333; font-weight: bold;">Total Pembayaran:</span>
+          <span class="total-amount" id="totalHarga">Rp 0</span>
+        </div>
+        <button type="button" id="btnPesan" class="btn-checkout" style="margin-top: 20px; width: 100%;">Pesan
+          Sekarang</button>
       </div>
-    </footer>
+    </div>
+  </main>
 
-    <script src="keranjang.js"></script>
-  </body>
+  <a href="https://wa.me/6287714040944" class="whatsapp-float" target="_blank">
+    <img src="assets/img/wa.png" alt="WhatsApp" class="wa-logo" />
+    <span class="wa-text">Perlu bantuan?</span>
+  </a>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/keranjang.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+
 </html>

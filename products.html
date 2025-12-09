@@ -1,317 +1,288 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Katalog Benih - BenihKu</title>
-    <link rel="stylesheet" href="assets/css/base-style.css" />
-    <link rel="stylesheet" href="assets/css/product-style.css" />
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </head>
-  <body>
-    <nav class="nav-wrap container">
-      <a href="index.html" class="brand">
-        <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
-      </a>
 
-      <ul class="links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="products.html" class="active">Benih</a></li>
-        <li><a href="services.html">Layanan</a></li>
-        <li><a href="testimonials.html">Testimoni</a></li>
-        <li><a href="contact.html">Kontak</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Benih - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css" />
+  <link rel="stylesheet" href="assets/css/product-style.css" />
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
 
-        <li class="group">
-          <div class="search">
-            <form action="products.html" method="get">
-              <input type="checkbox" id="search-toggle" />
-              <label for="search-toggle">
-                <ion-icon name="search-outline"></ion-icon>
-              </label>
-              <input type="search" placeholder="Search..." />
-            </form>
-          </div>
+<body>
+  <nav class="nav-wrap container">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+    </a>
 
-          <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
-            <ion-icon name="cart-outline"></ion-icon>
-          </a>
+    <ul class="links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="products.html" class="active">Benih</a></li>
+      <li><a href="services.html">Layanan</a></li>
+      <li><a href="testimonials.html">Testimoni</a></li>
+      <li><a href="contact.html">Kontak</a></li>
 
-          <div class="icon-btn menu-toggle">
-            <input type="checkbox" id="menu-toggle" />
-            <label for="menu-toggle" class="hamburger">
-              <ion-icon name="menu-outline"></ion-icon>
+      <li class="group">
+        <div class="search">
+          <form action="products.html" method="get">
+            <input type="checkbox" id="search-toggle" />
+            <label for="search-toggle">
+              <ion-icon name="search-outline"></ion-icon>
             </label>
-            <ul class="sub-links">
-              <li><a href="index.html">Beranda</a></li>
-              <li><a href="products.html" class="active">Benih</a></li>
-              <li><a href="services.html">Layanan</a></li>
-              <li><a href="testimonials.html">Testimoni</a></li>
-              <li><a href="contact.html">Kontak</a></li>
-              <li><a href="" class="sign-in">Sign In</a></li>
-              <li><a href="" class="sign-up">Sign Up</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+            <input type="search" placeholder="Search..." />
+          </form>
+        </div>
 
-      <div class="auth-panel">
-        <a href="#" class="sign-in">Sign In</a>
-        <a href="#" class="btn-signup">Sign Up</a>
-      </div>
-    </nav>
-    <main>
-      <header class="container">
-        <h1 class="hero-title">Katalog Benih Unggulan</h1>
-        <form action="/products.html" method="get" class="search-form-products">
-          <div class="search-box">
+        <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
+        </a>
+
+        <div class="icon-btn menu-toggle">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+          </label>
+          <ul class="sub-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html" class="active">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="signin.html" class="sign-in">Sign In</a></li>
+            <li><a href="signup.html" class="sign-up">Sign Up</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <div class="auth-panel">
+      <a href="signin.html" class="sign-in">Sign In</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+    </div>
+  </nav>
+  <main>
+    <header class="container">
+      <h1 class="hero-title">Katalog Benih Unggulan</h1>
+      <form action="products.html" method="get" class="search-form-products" onsubmit="return false;">
+        <!-- Prevent default submit for JS filtering, or remove onsubmit if we want reload -->
+        <div class="search-box">
+          <button type="button" id="searchBtn"
+            style="background:none; border:none; cursor:pointer; color: inherit; display:flex; align-items:center;">
             <ion-icon name="search-outline"></ion-icon>
-            <input
-              type="text"
-              class="search-input"
-              placeholder="Cari benih..."
-            />
-            <a href="voucher.html" class="voucher"
-              ><ion-icon name="ticket-outline"></ion-icon> Voucher</a
-            >
-          </div>
-        </form>
-      </header>
-      <section class="products container">
-        <div class="product-grid">
-          <div class="product-card">
-            <a href="detail.html?id=bayem" class="product-img">
-              <img src="assets/img/bayem cover yang ini aja.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit Bayam</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
+          </button>
+          <input type="text" class="search-input" id="searchInput" name="q" placeholder="Cari benih..." />
+          <a href="voucher.html" class="voucher"><ion-icon name="ticket-outline"></ion-icon> Voucher</a>
+        </div>
+      </form>
+    </header>
+    <section class="products container">
+      <div class="product-grid">
+        <div class="product-card">
+          <a href="detail.html?id=bayem" class="product-img">
+            <img src="assets/img/bayem cover yang ini aja.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
             </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=cabai" class="product-img">
-              <img src="assets/img/chili.jpg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit cabai</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-           <a href="detail.html?id=pare" class="product-img">
-              <img src="assets/img/cover pare.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit pare</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=sawi" class="product-img">
-              <img src="assets/img/sawi.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit sawi</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=mentimun" class="product-img">
-              <img src="assets/img/cover mentimun.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit mentimun</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=tomat" class="product-img">
-              <img src="assets/img/tomat cover.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit tomat</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=terong" class="product-img">
-              <img src="assets/img/cover terong.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit terong</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=ikang" class="product-img">
-              <img src="assets/img/kangkung.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit kangkung</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=kacangpanjang" class="product-img">
-              <img src="assets/img/cover kacang.jpeg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit kacang panjang</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=jagung" class="product-img">
-              <img src="assets/img/jagung.jpg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit jagung</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=kol" class="product-img">
-              <img src="assets/img/kol.jpg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit kol</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-card">
-            <a href="detail.html?id=kembangkol" class="product-img">
-              <img src="assets/img/kembang kol.jpg" alt="" />
-            </a>
-            <div class="product-info">
-              <div class="product-meta">
-                <a href="" class="product-category">Benih</a>
-                <span class="product-rating"
-                  ><ion-icon name="star"></ion-icon> 5.0</span
-                >
-              </div>
-              <a href="" class="product-title">Bibit kembang kol</a>
-              <div class="price-group">
-                <span class="product-price">Rp. 5.000</span>
-                <span class="orignal-price">Rp. 10.000</span>
-              </div>
+            <a href="" class="product-title">Bibit Bayam</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
             </div>
           </div>
         </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        <div class="product-card">
+          <a href="detail.html?id=cabai" class="product-img">
+            <img src="assets/img/chili.jpg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit cabai</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=pare" class="product-img">
+            <img src="assets/img/cover pare.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit pare</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=sawi" class="product-img">
+            <img src="assets/img/sawi.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit sawi</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=mentimun" class="product-img">
+            <img src="assets/img/cover mentimun.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit mentimun</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=tomat" class="product-img">
+            <img src="assets/img/tomat cover.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit tomat</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=terong" class="product-img">
+            <img src="assets/img/cover terong.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit terong</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=ikang" class="product-img">
+            <img src="assets/img/kangkung.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit kangkung</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=kacangpanjang" class="product-img">
+            <img src="assets/img/cover kacang.jpeg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit kacang panjang</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=jagung" class="product-img">
+            <img src="assets/img/jagung.jpg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit jagung</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=kol" class="product-img">
+            <img src="assets/img/kol.jpg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit kol</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="detail.html?id=kembangkol" class="product-img">
+            <img src="assets/img/kembang kol.jpg" alt="" />
+          </a>
+          <div class="product-info">
+            <div class="product-meta">
+              <a href="" class="product-category">Benih</a>
+              <span class="product-rating"><ion-icon name="star"></ion-icon> 5.0</span>
+            </div>
+            <a href="" class="product-title">Bibit kembang kol</a>
+            <div class="price-group">
+              <span class="product-price">Rp. 5.000</span>
+              <span class="orignal-price">Rp. 10.000</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="assets/js/Product.js"></script>
-  </body>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/Product.js"></script>
+</body>
+
 </html>

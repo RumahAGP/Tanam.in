@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - BenihKu</title>
+    <link rel="stylesheet" href="assets/css/base-style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/auth-style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-wrap container">
+            <a href="index.html" class="brand">
+                <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+            </a>
+
+            <ul class="links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="products.html">Benih</a></li>
+                <li><a href="services.html">Layanan</a></li>
+                <li><a href="testimonials.html">Testimoni</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+
+                <li class="group">
+                    <!-- Reuse Search & Cart -->
+                    <div class="search">
+                        <form action="products.html" method="get">
+                            <input type="checkbox" id="search-toggle" />
+                            <label for="search-toggle">
+                                <ion-icon name="search-outline"></ion-icon>
+                            </label>
+                            <input type="search" placeholder="Search..." name="q" />
+                        </form>
+                    </div>
+
+                    <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </a>
+
+                    <div class="icon-btn menu-toggle">
+                        <input type="checkbox" id="menu-toggle" />
+                        <label for="menu-toggle" class="hamburger">
+                            <ion-icon name="menu-outline"></ion-icon>
+                        </label>
+                        <ul class="sub-links">
+                            <li><a href="index.html">Beranda</a></li>
+                            <li><a href="products.html">Benih</a></li>
+                            <li><a href="services.html">Layanan</a></li>
+                            <li><a href="testimonials.html">Testimoni</a></li>
+                            <li><a href="contact.html">Kontak</a></li>
+                            <li><a href="signin.html" class="sign-in">Sign In</a></li>
+                            <li><a href="signup.html" class="sign-up">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Sign In</h2>
+                <p>Selamat datang kembali di BenihKu</p>
+            </div>
+            <div class="auth-body">
+                <form action="#" method="POST"
+                    onsubmit="event.preventDefault(); alert('Fitur Sign In belum aktif (Frontend Demo)');">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group">
+                            <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+                            <input type="email" id="email" class="form-input" placeholder="masukkan@email.com"
+                                required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+                            <input type="password" id="password" class="form-input" placeholder="........" required />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-auth">Sign In</button>
+                </form>
+
+                <div class="divider">
+                    <span>atau</span>
+                </div>
+
+                <p class="auth-footer-text">
+                    Belum punya akun? <a href="signup.html">Sign Up Sekarang</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- No footer for cleaner auth page, or optional -->
+    <footer>
+        <div class="container" style="text-align: center; color: white;">
+            <p>&copy; 2025 BenihKu. Dibuat oleh Kelompok 3.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -3,28 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const products = document.querySelectorAll(".product-card");
 
-  if (!searchBtn || !searchInput) {
-    console.error("Elemen pencarian tidak ditemukan di halaman ini.");
-    return;
-  }
-
-
-  searchBtn.addEventListener("click", function () {
-    const keyword = searchInput.value.toLowerCase().trim();
-
-  
-    if (keyword === "") {
-      products.forEach((product) => (product.style.display = "block"));
-      return;
-    }
-
+  // Helper function to perform search
+  function performSearch(keyword) {
+    keyword = keyword.toLowerCase().trim();
     let adaHasil = false;
 
     products.forEach((product) => {
-      const title = product.querySelector("h3").textContent.toLowerCase();
-      const desc = product.querySelector("p").textContent.toLowerCase();
+      // Selector updated: Title is usually in .product-title or h3
+      const titleEl = product.querySelector(".product-title") || product.querySelector("h3");
+      const title = titleEl ? titleEl.textContent.toLowerCase() : "";
 
-      if (title.includes(keyword) || desc.includes(keyword)) {
+      // Optional: Search in category too
+      const catEl = product.querySelector(".product-category");
+      const category = catEl ? catEl.textContent.toLowerCase() : "";
+
+      if (title.includes(keyword) || category.includes(keyword)) {
         product.style.display = "block";
         adaHasil = true;
       } else {
@@ -32,15 +25,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    if (!adaHasil) {
-      alert("Produk tidak ditemukan untuk kata kunci: " + keyword);
+    // Optional: Show "No Results" message if needed
+    // if (!adaHasil && keyword !== "") { ... }
+  }
+
+  // 1. Check URL for search query (e.g., from Navbar search)
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryParam = urlParams.get('q');
+
+  if (queryParam) {
+    if (searchInput) searchInput.value = queryParam;
+    performSearch(queryParam);
+  }
+
+  if (!searchBtn || !searchInput) {
+    return;
+  }
+
+  // 2. Click Event
+  searchBtn.addEventListener("click", function () {
+    performSearch(searchInput.value);
+  });
+
+  // 3. Enter Key Event
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      performSearch(searchInput.value);
     }
   });
 
-
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      searchBtn.click();
-    }
+  // 4. Real-time Search (Optional, if desired)
+  searchInput.addEventListener("input", (e) => {
+    performSearch(e.target.value);
   });
 });

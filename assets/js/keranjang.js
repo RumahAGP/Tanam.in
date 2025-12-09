@@ -1,71 +1,237 @@
 const tbody = document.getElementById("keranjangContent");
+const btnPesan = document.getElementById("btnPesan");
+const btnPakaiVoucher = document.getElementById("btnPakaiVoucher");
+const inputVoucher = document.getElementById("kodeVoucher");
+const subtotalEl = document.getElementById("subtotalHarga");
+const diskonEl = document.getElementById("diskonHarga");
+const diskonRow = document.getElementById("diskonRow");
+const totalEl = document.getElementById("totalHarga");
+
 let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+let activeVoucher = null; // { code: "ABC", type: "percent/flat", value: 10 }
+
+// Daftar Voucher (Bisa dipindah ke database/API nantinya)
+const VOUCHERS = {
+    "BENIH10": { type: "percent", value: 10 },
+    "ONGKIRFREE": { type: "flat", value: 10000 },
+    "CASHBACK15": { type: "percent", value: 15 },
+    "BENIH20": { type: "percent", value: 20 },
+    "MEMBER25": { type: "percent", value: 25 },
+    "HBD50K": { type: "flat", value: 50000 },
+    "FLASH40": { type: "percent", value: 40 },
+    "WEEKEND30": { type: "percent", value: 30 },
+    "NEWUSER20": { type: "percent", value: 20 },
+    "B2G1BENIH": { type: "flat", value: 0 }, // Logic 'Buy 2 Get 1' agak kompleks, kita skip dulu atau anggap diskon 0 utk sekarang
+};
 
 function parseHarga(hargaStr) {
+    if (!hargaStr) return 0;
     return parseInt(hargaStr.replace(/\D/g, ''));
+}
+
+function formatRupiah(number) {
+    return "Rp " + number.toLocaleString('id-ID');
+}
+
+function hitungTotal() {
+    let subtotal = 0;
+    keranjang.forEach(item => {
+        subtotal += parseHarga(item.harga) * item.jumlah;
+    });
+    return subtotal;
+}
+
+function updateSummary() {
+    const subtotal = hitungTotal();
+    let discountAmount = 0;
+
+    if (activeVoucher) {
+        if (activeVoucher.type === "percent") {
+            discountAmount = subtotal * (activeVoucher.value / 100);
+        } else if (activeVoucher.type === "flat") {
+            discountAmount = activeVoucher.value;
+        }
+        // Pastikan diskon tidak melebihi subtotal
+        if (discountAmount > subtotal) discountAmount = subtotal;
+    }
+
+    const finalTotal = subtotal - discountAmount;
+
+    // Update UI
+    if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
+
+    if (activeVoucher && diskonRow && diskonEl) {
+        diskonRow.style.display = "flex"; // Show discount row
+        diskonEl.textContent = "-" + formatRupiah(discountAmount);
+    } else if (diskonRow) {
+        diskonRow.style.display = "none";
+    }
+
+    if (totalEl) totalEl.textContent = formatRupiah(finalTotal);
 }
 
 function tampilkanKeranjang() {
     tbody.innerHTML = "";
-    let total = 0;
 
     if (keranjang.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Keranjangmu kosong.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 30px;">Keranjangmu kosong. <a href="products.html" style="color:#2ecc71;">Belanja sekarang</a></td></tr>`;
     } else {
         keranjang.forEach((item, index) => {
             const hargaAngka = parseHarga(item.harga);
             const totalItem = hargaAngka * item.jumlah;
-            total += totalItem;
 
             const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>
-                    <img src="${item.gambar}" alt="${item.nama}" style="width:70px; border-radius:8px; vertical-align:middle;">
-                    <span style="margin-left:10px;">${item.nama}</span>
+                    <div class="cart-product-info">
+                        <img src="${item.gambar}" alt="${item.nama}" class="cart-product-img">
+                        <div class="cart-product-details">
+                            <span class="cart-product-name">${item.nama}</span>
+                            <span class="cart-product-variant">Variasi: Default</span>
+                        </div>
+                    </div>
                 </td>
-                <td>${item.harga}</td>
+                <td class="cart-price">${item.harga}</td>
                 <td>
-                    <input type="number" min="1" value="${item.jumlah}" data-index="${index}" class="input-jumlah" style="width:60px; text-align:center;">
+                    <div class="qty-control">
+                        <button class="qty-btn minus" data-index="${index}">-</button>
+                        <input type="number" min="1" value="${item.jumlah}" data-index="${index}" class="qty-input">
+                        <button class="qty-btn plus" data-index="${index}">+</button>
+                    </div>
                 </td>
-                <td class="subtotal">Rp ${totalItem.toLocaleString()}</td>
-                <td><button data-index="${index}" class="hapus-item">Hapus</button></td>
+                <td class="cart-total-price">Rp ${totalItem.toLocaleString('id-ID')}</td>
+                <td><button data-index="${index}" class="btn-delete">Hapus</button></td>
             `;
             tbody.appendChild(tr);
         });
     }
 
-    updateTotal();
+    updateSummary();
+    setupEventListeners();
+}
 
-    document.querySelectorAll(".input-jumlah").forEach(input => {
-        input.addEventListener("input", (e) => {
-            const idx = e.target.dataset.index;
-            let value = parseInt(e.target.value);
-            if (isNaN(value) || value < 1) value = 1;
-            keranjang[idx].jumlah = value;
-            localStorage.setItem("keranjang", JSON.stringify(keranjang));
-            // Update subtotal baris itu
-            const tr = e.target.closest("tr");
-            const hargaAngka = parseHarga(keranjang[idx].harga);
-            tr.querySelector(".subtotal").textContent = `Rp ${(hargaAngka * value).toLocaleString()}`;
-            // Update total keseluruhan
-            updateTotal();
+function setupEventListeners() {
+    // Quantity Input Change
+    document.querySelectorAll(".qty-input").forEach(input => {
+        input.addEventListener("change", (e) => {
+            updateQuantity(e.target.dataset.index, parseInt(e.target.value));
         });
     });
 
-    document.querySelectorAll(".hapus-item").forEach(btn => {
+    // Plus Button
+    document.querySelectorAll(".qty-btn.plus").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const idx = e.target.dataset.index;
-            keranjang.splice(idx, 1);
-            localStorage.setItem("keranjang", JSON.stringify(keranjang));
-            tampilkanKeranjang();
+            updateQuantity(idx, keranjang[idx].jumlah + 1);
+        });
+    });
+
+    // Minus Button
+    document.querySelectorAll(".qty-btn.minus").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const idx = e.target.dataset.index;
+            updateQuantity(idx, keranjang[idx].jumlah - 1);
+        });
+    });
+
+    // Delete Button
+    document.querySelectorAll(".btn-delete").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const idx = e.target.dataset.index;
+            if (confirm("Hapus item ini dari keranjang?")) {
+                keranjang.splice(idx, 1);
+                saveAndRender();
+            }
         });
     });
 }
 
-function updateTotal() {
-    const total = keranjang.reduce((sum, item) => sum + parseHarga(item.harga) * item.jumlah, 0);
-    document.getElementById("totalHarga").textContent = total.toLocaleString();
+function updateQuantity(index, newQty) {
+    if (isNaN(newQty) || newQty < 1) newQty = 1;
+    keranjang[index].jumlah = newQty;
+    saveAndRender();
 }
 
+function saveAndRender() {
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    tampilkanKeranjang();
+}
+
+// Voucher Logic
+if (btnPakaiVoucher) {
+    btnPakaiVoucher.addEventListener("click", () => {
+        const code = inputVoucher.value.toUpperCase().trim();
+        if (!code) {
+            alert("Masukkan kode voucher terlebih dahulu.");
+            return;
+        }
+
+        if (VOUCHERS[code]) {
+            activeVoucher = { code: code, ...VOUCHERS[code] };
+            alert(`Voucher ${code} berhasil dipasang!`);
+            updateSummary();
+        } else {
+            alert("Kode voucher tidak valid atau kedaluwarsa.");
+            activeVoucher = null;
+            updateSummary();
+        }
+    });
+}
+
+// Checkout Logic (WhatsApp)
+if (btnPesan) {
+    btnPesan.addEventListener("click", () => {
+        if (keranjang.length === 0) {
+            alert("Keranjang belanja masih kosong!");
+            return;
+        }
+
+        const nama = document.getElementById("nama").value;
+        const telepon = document.getElementById("telepon").value;
+        const alamat = document.getElementById("alamat").value;
+        const patokan = document.getElementById("patokan").value;
+
+        if (!nama || !telepon || !alamat) {
+            alert("Mohon lengkapi Nama, Telepon, dan Alamat Pengiriman.");
+            return;
+        }
+
+        let message = `*Halo BenihKu, Saya ingin memesan:*\n\n`;
+        let subtotal = 0;
+
+        keranjang.forEach(item => {
+            const harga = parseHarga(item.harga);
+            const itemTotal = harga * item.jumlah;
+            subtotal += itemTotal;
+            message += `- ${item.nama} (${item.jumlah}x) = ${formatRupiah(itemTotal)}\n`;
+        });
+
+        message += `\nSubtotal: ${formatRupiah(subtotal)}\n`;
+
+        if (activeVoucher) {
+            // Recalculate discount for message
+            let discountAmount = 0;
+            if (activeVoucher.type === "percent") {
+                discountAmount = subtotal * (activeVoucher.value / 100);
+            } else if (activeVoucher.type === "flat") {
+                discountAmount = activeVoucher.value;
+            }
+            if (discountAmount > subtotal) discountAmount = subtotal;
+
+            message += `Voucher (${activeVoucher.code}): -${formatRupiah(discountAmount)}\n`;
+            subtotal -= discountAmount;
+        }
+
+        message += `*Total Bayar: ${formatRupiah(subtotal)}*\n\n`;
+        message += `*Data Pengiriman:*\n`;
+        message += `Nama: ${nama}\n`;
+        message += `Telepon: ${telepon}\n`;
+        message += `Alamat: ${alamat}\n`;
+        if (patokan) message += `Patokan: ${patokan}\n`;
+
+        const waUrl = `https://wa.me/6287714040944?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, "_blank");
+    });
+}
 
 tampilkanKeranjang();

@@ -1,0 +1,140 @@
+/* Authentication Pages Styles */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    /* Adjust for header/footer */
+    padding: 40px 20px;
+    margin-top: 80px;
+    /* Offset fixed header */
+}
+
+.auth-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.auth-header {
+    background-color: #2e7d32;
+    /* Brand Green */
+    color: #fff;
+    padding: 30px 20px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.auth-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.auth-header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.auth-body {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    font-size: 20px;
+    color: #888;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    /* Left padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #2e7d32;
+    outline: none;
+}
+
+.btn-auth {
+    width: 100%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-auth:hover {
+    background-color: #1b5e20;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #888;
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.auth-footer-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-footer-text a {
+    color: #2e7d32;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-footer-text a:hover {
+    text-decoration: underline;
+}

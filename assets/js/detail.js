@@ -5,33 +5,33 @@ const dataProduk = {
         hargaLama: "Rp 1.500",
         deskripsi: " Benih cabai berkualitas tinggi dengan daya tumbuh di atas 90% cocok untuk ditanam di dataran rendah maupun tinggi, tahan penyakit,dan menghasilkan buah pedas aromatik",
 
-        
+
         gambar: [
             "assets/img/Chili.jpg",
             "assets/img/Chili2.jpg",
             "assets/img/Chili3.jpg"
         ]
     },
- bayem: {
+    bayem: {
         nama: "Benih bayam",
         harga: "Rp 250",
         hargaLama: "Rp 500",
         deskripsi: "Benih bayam berkualitas tinggi dengan daya tumbuh di atas 90% cocok untuk ditanam di dataran rendah maupun tinggi, tahan penyakit,dan menghasilkan daun bayam hijau yang berkualitas",
 
-        
+
         gambar: [
-           "assets/img/bayem cover yang ini aja.jpeg",
-    "assets/img/bijibayam.jpg",
-    "assets/img/bayemdetail2.jpg"
+            "assets/img/bayem cover yang ini aja.jpeg",
+            "assets/img/bijibayam.jpg",
+            "assets/img/bayemdetail2.jpg"
         ]
     },
-      jagung: {
+    jagung: {
         nama: "Benih jagung",
         harga: "Rp 500",
         hargaLama: "Rp 750",
         deskripsi: "Benih Jagung berkualitas tinggi dengan daya tumbuh di atas 90% tahan penyakit,dan menghasilkan jagung yang berkualitas",
 
-        
+
         gambar: [
             "assets/cover.jpeg",
             "assets/Chili2.jpg",
@@ -39,13 +39,13 @@ const dataProduk = {
         ]
     },
 
-     pare: {
+    pare: {
         nama: "Benih pare",
         harga: "Rp 500",
         hargaLama: "Rp 750",
         deskripsi: "Benih pare berkualitas tinggi dengan daya tumbuh di atas 90% tahan penyakit,dan menghasilkan jagung yang berkualitas",
 
-        
+
         gambar: [
             "assets/img/cover pare.jpeg",
             "assets/img/pare.jpg",
@@ -55,51 +55,51 @@ const dataProduk = {
 
 
     sawi: {
-    nama: "Benih Sawi",
-    harga: "Rp 1.500",
-    hargaLama: "Rp 2.000",
-    deskripsi: "Bibit Sawi unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
-    gambar: [
-        "assets/img/sawi.jpeg",
-        "assets/img/Biji-Sawi.jpg",
-        "assets/img/sawidetail.jpg"
-    ]
-},
+        nama: "Benih Sawi",
+        harga: "Rp 1.500",
+        hargaLama: "Rp 2.000",
+        deskripsi: "Bibit Sawi unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
+        gambar: [
+            "assets/img/sawi.jpeg",
+            "assets/img/Biji-Sawi.jpg",
+            "assets/img/sawidetail.jpg"
+        ]
+    },
 
-kol: {
-    nama: "Benih kol",
-    harga: "Rp 1.500",
-    hargaLama: "Rp 2.000",
-    deskripsi: "Bibit kol unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
-    gambar: [
-        "assets/cover pare.jpeg",
-        "assets/sawi2.jpeg",
-        "assets/sawi3.jpeg"
-    ]
-},
-
-
-kembangkol: {
-    nama: "Benih kembang kol",
-    harga: "Rp 1.500",
-    hargaLama: "Rp 2.000",
-    deskripsi: "Bibit kembang kol unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
-    gambar: [
-        "assets/cover pare.jpeg",
-        "assets/sawi2.jpeg",
-        "assets/sawi3.jpeg"
-    ]
-},
+    kol: {
+        nama: "Benih kol",
+        harga: "Rp 1.500",
+        hargaLama: "Rp 2.000",
+        deskripsi: "Bibit kol unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
+        gambar: [
+            "assets/cover pare.jpeg",
+            "assets/sawi2.jpeg",
+            "assets/sawi3.jpeg"
+        ]
+    },
 
 
+    kembangkol: {
+        nama: "Benih kembang kol",
+        harga: "Rp 1.500",
+        hargaLama: "Rp 2.000",
+        deskripsi: "Bibit kembang kol unggul dengan daya tumbuh di atas 90%, tahan terhadap hama dan penyakit, serta menghasilkan daun yang hijau segar, tebal, dan bernutrisi tinggi.",
+        gambar: [
+            "assets/cover pare.jpeg",
+            "assets/sawi2.jpeg",
+            "assets/sawi3.jpeg"
+        ]
+    },
 
-ikang: {
+
+
+    ikang: {
         nama: "Benih kangkung",
         harga: "Rp 500",
         hargaLama: "Rp 750",
         deskripsi: "Bibit Kangkung unggul dengan daya tumbuh tinggi di atas 90%, tahan terhadap hama dan cuaca ekstrem, serta menghasilkan daun yang hijau segar dan lebat.",
 
-        
+
         gambar: [
             "assets/img/kangkung.jpeg",
             "assets/img/kangkung.jpeg",
@@ -216,7 +216,7 @@ btnKeranjang.addEventListener("click", () => {
     // Simpan kembali ke localStorage
     localStorage.setItem("keranjang", JSON.stringify(keranjang));
 
-    // Feedback ke user tanpa pindah halaman
-    alert(`${produk.nama} berhasil ditambahkan ke keranjang!`);
+    // Redirect ke halaman keranjang (One-Page Checkout)
+    window.location.href = 'keranjang.html';
 });
 

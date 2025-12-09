@@ -1,111 +1,162 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kontak - BenihKu</title>
-    <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
-    <link rel="stylesheet" href="assets/css/base-style.css" />
-    <link rel="stylesheet" href="assets/css/contact-style.css" />
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </head>
-  <body>
-    <nav class="nav-wrap container">
-      <a href="index.html" class="brand">
-        <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
-      </a>
 
-      <ul class="links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="products.html" class="active">Benih</a></li>
-        <li><a href="services.html">Layanan</a></li>
-        <li><a href="testimonials.html">Testimoni</a></li>
-        <li><a href="contact.html">Kontak</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - BenihKu</title>
+  <link rel="stylesheet" href="assets/css/base-style.css" />
+  <link rel="stylesheet" href="assets/css/contact-style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
 
-        <li class="group">
-          <div class="search">
-            <form action="/products.html" method="get">
-              <input type="checkbox" id="search-toggle" />
-              <label for="search-toggle">
-                <ion-icon name="search-outline"></ion-icon>
-              </label>
-              <input type="search" placeholder="Search..." />
-            </form>
-          </div>
+<body>
+  <!-- Navbar -->
+  <nav class="nav-wrap container">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.jpeg" alt="BenihKu logo" />BenihKu
+    </a>
 
-          <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
-            <ion-icon name="cart-outline"></ion-icon>
-          </a>
+    <ul class="links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="products.html">Benih</a></li>
+      <li><a href="services.html">Layanan</a></li>
+      <li><a href="testimonials.html">Testimoni</a></li>
+      <li><a href="contact.html" class="active">Kontak</a></li>
 
-          <div class="icon-btn menu-toggle">
-            <input type="checkbox" id="menu-toggle" />
-            <label for="menu-toggle" class="hamburger">
-              <ion-icon name="menu-outline"></ion-icon>
+      <li class="group">
+        <div class="search">
+          <form action="products.html" method="get">
+            <input type="checkbox" id="search-toggle" />
+            <label for="search-toggle">
+              <ion-icon name="search-outline"></ion-icon>
             </label>
-            <ul class="sub-links">
-              <li><a href="index.html">Beranda</a></li>
-              <li><a href="products.html" class="active">Benih</a></li>
-              <li><a href="services.html">Layanan</a></li>
-              <li><a href="testimonials.html">Testimoni</a></li>
-              <li><a href="contact.html">Kontak</a></li>
-              <li><a href="" class="sign-in">Sign In</a></li>
-              <li><a href="" class="sign-up">Sign Up</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-
-      <div class="auth-panel">
-        <a href="#" class="sign-in">Sign In</a>
-        <a href="#" class="btn-signup">Sign Up</a>
-      </div>
-    </nav>
-
-    <main>
-      <section class="contact container">
-        <h2 class="section-title">Hubungi Kami</h2>
-
-        <form class="contact-form">
-          <div class="form-group">
-            <input type="text" placeholder="Nama Lengkap" required />
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Email" required />
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subjek" required />
-          </div>
-          <div class="form-group">
-            <textarea placeholder="Pesan" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-        </form>
-
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.250183965517!2d110.3671!3d-7.8683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57c8f23dfbaf%3A0x1234567890abcdef!2sYogyakarta!5e0!3m2!1sid!2sid!4v1699999999999"
-            width="100%"
-            height="100%"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-          >
-          </iframe>
+            <input type="search" placeholder="Search..." name="q" />
+          </form>
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+        <a href="keranjang.html" class="icon-btn cart" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
+        </a>
+
+        <div class="icon-btn menu-toggle">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">
+            <ion-icon name="menu-outline"></ion-icon>
+          </label>
+          <ul class="sub-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="products.html">Benih</a></li>
+            <li><a href="services.html">Layanan</a></li>
+            <li><a href="testimonials.html">Testimoni</a></li>
+            <li><a href="contact.html" class="active">Kontak</a></li>
+            <li><a href="signin.html" class="sign-in">Sign In</a></li>
+            <li><a href="signup.html" class="sign-up">Sign Up</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <div class="auth-panel">
+      <a href="signin.html" class="sign-in">Sign In</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  <main>
+    <section class="contact-hero">
+      <h1>Hubungi Kami</h1>
+      <p>
+        Punya pertanyaan atau butuh bantuan? Tim kami siap membantu Anda
+        menumbuhkan kebun impian.
+      </p>
+    </section>
+
+    <section class="contact-container">
+      <!-- Contact Info (Left) -->
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="icon-wrapper location">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+          <div class="info-content">
+            <h3>Alamat Kantor</h3>
+            <p>Universitas Pamulang Viktor, Tangerang Selatan</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon-wrapper">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+          <div class="info-content">
+            <h3>Telepon</h3>
+            <p>+62 812 3456 7890</p>
+            <p>+62 274 123 456</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon-wrapper">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+          <div class="info-content">
+            <h3>Email</h3>
+            <p>info@benihku.com</p>
+            <p>support@benihku.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="icon-wrapper">
+            <ion-icon name="time-outline"></ion-icon>
+          </div>
+          <div class="info-content">
+            <h3>Jam Operasional</h3>
+            <p>Senin - Jumat: 08:00 - 17:00</p>
+            <p>Sabtu: 09:00 - 15:00</p>
+          </div>
+        </div>
       </div>
-    </footer>
-  </body>
+
+      <!-- Contact Form (Right) -->
+      <div class="contact-form-section">
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Pesan Anda telah terkirim!');">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Nama Lengkap" required />
+          </div>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Alamat Email" required />
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Subjek Pesan" required />
+          </div>
+          <div class="input-group">
+            <textarea class="form-control" placeholder="Pesan Anda"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Map Section Restored -->
+    <section class="map-section">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15860.914275095347!2d106.69992525541992!3d-6.329868799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e50c40e14a19%3A0x6bba416c2134a471!2sUniversitas%20Pamulang%20Viktor!5e0!3m2!1sen!2sid!4v1715123456789!5m2!1sen!2sid"
+          width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="text-align: center; color: white;">
+      <p>&copy; 2025 BenihKu. All Rights Reserved. Dibuat oleh Kelompok 3.</p>
+    </div>
+  </footer>
+</body>
+
 </html>
